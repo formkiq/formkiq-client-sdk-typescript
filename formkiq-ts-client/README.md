@@ -25,24 +25,6 @@ npm install
 npm run build
 ```
 
-### How to Run Example
-
-1. Install and build the generated client (one-time):
-   ```
-   cd formkiq-ts-client && npm install && npm run build && cd ..
-   ```
-2. Set your environment for the API call (replace with your values):
-   ```
-   export FORMKIQ_API_URL="https://<your-formkiq-api-url>"
-   export JWT="<your-oauth-access-token>"
-   export SITE_ID="default"   # optional; defaults to "default"
-   ```
-3. Run the example from the repo root (forcing CommonJS output for ts-node):
-   ```
-   npx ts-node --transpile-only --compiler-options '{"module":"CommonJS"}' example.ts
-   ```
-   The script will add a sample document and log the result. Ensure the JWT has access to `SITE_ID`.
-
 ### Publishing
 
 First build the package then run `npm publish`
@@ -731,3 +713,10 @@ Class | Method | HTTP request | Description
  - [WorkflowStepDecision](docs/WorkflowStepDecision.md)
  - [WorkflowStepDecisionType](docs/WorkflowStepDecisionType.md)
  - [WorkflowSummary](docs/WorkflowSummary.md)
+
+
+<a id="documentation-for-authorization"></a>
+## Documentation For Authorization
+
+Endpoints do not require authorization.
+
