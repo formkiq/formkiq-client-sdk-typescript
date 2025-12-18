@@ -1,0 +1,20 @@
+# GetRuleResponse
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**rule** | [**Rule**](Rule.md) |  | [optional] [default to undefined]
+
+## Example
+
+```typescript
+import { GetRuleResponse } from 'formkiq-client-sdk-typescript';
+
+const instance: GetRuleResponse = {
+    rule,
+};
+```
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

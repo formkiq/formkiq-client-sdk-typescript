@@ -1,6 +1,6 @@
-## formkiq-ts-client@1.18.0
+## FormKiQ Client SDK - TypeScript
 
-This generator creates TypeScript/JavaScript client that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
+The FormKiQ TypeScript client utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 
 Environment
 * Node.js
@@ -17,19 +17,12 @@ Module system
 
 It can be used in both TypeScript and JavaScript. In TypeScript, the definition will be automatically resolved via `package.json`. ([Reference](https://www.typescriptlang.org/docs/handbook/declaration-files/consumption.html))
 
-### Building
-
-To build and compile the typescript sources to javascript use:
-```
-npm install
-npm run build
-```
 
 ### How to Run Example
 
 1. Install and build the generated client (one-time):
    ```
-   cd formkiq-ts-client && npm install && npm run build && cd ..
+   npm install axios @formkiq/client-sdk-typescript
    ```
 2. Set your environment for the API call (replace with your values):
    ```
@@ -43,25 +36,17 @@ npm run build
    ```
    The script will add a sample document and log the result. Ensure the JWT has access to `SITE_ID`.
 
+### Building
+
+To build and compile the typescript sources to javascript use:
+```
+npm install
+npm run build
+```
+
 ### Publishing
 
 First build the package then run `npm publish`
-
-### Consuming
-
-navigate to the folder of your consuming project and run one of the following commands.
-
-_published:_
-
-```
-npm install formkiq-ts-client@1.18.0 --save
-```
-
-_unPublished (not recommended):_
-
-```
-npm install PATH_TO_GENERATED_PACKAGE --save
-```
 
 ### Documentation for API Endpoints
 

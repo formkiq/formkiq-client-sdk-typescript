@@ -1,0 +1,20 @@
+# SetWorkflowResponse
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**message** | **string** | Result message | [optional] [default to undefined]
+
+## Example
+
+```typescript
+import { SetWorkflowResponse } from 'formkiq-client-sdk-typescript';
+
+const instance: SetWorkflowResponse = {
+    message,
+};
+```
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

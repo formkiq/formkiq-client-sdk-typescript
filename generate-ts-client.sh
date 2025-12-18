@@ -26,14 +26,14 @@ VERSION=1.18.0
 OPENAPI_SPEC_URL="https://raw.githubusercontent.com/formkiq/formkiq-core/refs/heads/master/docs/openapi/openapi-jwt.yaml"
 
 # Output directory for the generated client
-OUTPUT_DIR="formkiq-ts-client"
+OUTPUT_DIR="formkiq-client-sdk-typescript"
 
 # Generate the TypeScript Axios client
 openapi-generator generate \
   -i "$OPENAPI_SPEC_URL" \
   -g typescript-axios \
   -o "$OUTPUT_DIR" \
-  --additional-properties=supportsES6=true,withInterfaces=true,npmName=formkiq-ts-client,npmVersion="${VERSION}"
+  --additional-properties=supportsES6=true,withInterfaces=true,npmName=formkiq-client-sdk-typescript,npmVersion="${VERSION}"
 
 echo "TypeScript Axios client generated in: $OUTPUT_DIR"
 cp "$OUTPUT_DIR/README.md" .
