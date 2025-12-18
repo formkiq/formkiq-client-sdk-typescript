@@ -1,6 +1,6 @@
-## formkiq-client-sdk-typescript@1.18.0
+## FormKiQ Client SDK - TypeScript
 
-This generator creates TypeScript/JavaScript client that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
+The FormKiQ TypeScript client utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 
 Environment
 * Node.js
@@ -17,6 +17,25 @@ Module system
 
 It can be used in both TypeScript and JavaScript. In TypeScript, the definition will be automatically resolved via `package.json`. ([Reference](https://www.typescriptlang.org/docs/handbook/declaration-files/consumption.html))
 
+
+### How to Run Example
+
+1. Install and build the generated client (one-time):
+   ```
+   npm install axios @formkiq/client-sdk-typescript
+   ```
+2. Set your environment for the API call (replace with your values):
+   ```
+   export FORMKIQ_API_URL="https://<your-formkiq-api-url>"
+   export JWT="<your-oauth-access-token>"
+   export SITE_ID="default"   # optional; defaults to "default"
+   ```
+3. Run the example from the repo root (forcing CommonJS output for ts-node):
+   ```
+   npx ts-node --transpile-only --compiler-options '{"module":"CommonJS"}' example.ts
+   ```
+   The script will add a sample document and log the result. Ensure the JWT has access to `SITE_ID`.
+
 ### Building
 
 To build and compile the typescript sources to javascript use:
@@ -28,22 +47,6 @@ npm run build
 ### Publishing
 
 First build the package then run `npm publish`
-
-### Consuming
-
-navigate to the folder of your consuming project and run one of the following commands.
-
-_published:_
-
-```
-npm install formkiq-client-sdk-typescript@1.18.0 --save
-```
-
-_unPublished (not recommended):_
-
-```
-npm install PATH_TO_GENERATED_PACKAGE --save
-```
 
 ### Documentation for API Endpoints
 
@@ -713,10 +716,3 @@ Class | Method | HTTP request | Description
  - [WorkflowStepDecision](docs/WorkflowStepDecision.md)
  - [WorkflowStepDecisionType](docs/WorkflowStepDecisionType.md)
  - [WorkflowSummary](docs/WorkflowSummary.md)
-
-
-<a id="documentation-for-authorization"></a>
-## Documentation For Authorization
-
-Endpoints do not require authorization.
-

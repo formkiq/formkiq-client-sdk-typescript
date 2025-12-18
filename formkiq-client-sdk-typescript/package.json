@@ -5,7 +5,7 @@
   "author": "FormKiQ Inc.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+    "url": "https://github.com/formkiq/formkiq-client-sdk-typescript.git"
   },
   "keywords": [
     "axios",
@@ -14,7 +14,7 @@
     "openapi-generator",
     "formkiq-client-sdk-typescript"
   ],
-  "license": "Unlicense",
+  "license": "Apache-2.0",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "module": "./dist/esm/index.js",
