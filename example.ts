@@ -1,6 +1,6 @@
 // example.ts (TypeScript)
 import axios from "axios";
-import { Configuration, DocumentsApi } from "@formkiq/client-sdk-typescript";
+import { Configuration, DocumentsApi } from "formkiq-client-sdk-typescript";
 import fs from "node:fs";
 
 const FORMKIQ_API_URL = process.env.FORMKIQ_API_URL || "https://your-formkiq-api.example.com";
