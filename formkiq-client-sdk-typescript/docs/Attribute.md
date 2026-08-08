@@ -6,8 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | [**AttributeType**](AttributeType.md) |  | [optional] [default to undefined]
-**key** | **string** | Attribute Key | [optional] [default to undefined]
+**key** | **string** | Attribute Key | [default to undefined]
 **dataType** | [**AttributeDataType**](AttributeDataType.md) |  | [optional] [default to undefined]
+**validationRegex** | **string** | Attribute Value Regex Validation | [optional] [default to undefined]
 **watermark** | [**Watermark**](Watermark.md) |  | [optional] [default to undefined]
 
 ## Example
@@ -19,6 +20,7 @@ const instance: Attribute = {
     type,
     key,
     dataType,
+    validationRegex,
     watermark,
 };
 ```

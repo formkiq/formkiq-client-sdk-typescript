@@ -13,11 +13,13 @@ Name | Type | Description | Notes
 **lastModifiedDate** | **string** | Last Modified Timestamp | [optional] [default to undefined]
 **checksum** | **string** | Document checksum, changes when document file changes | [optional] [default to undefined]
 **documentId** | **string** | Document Identifier | [default to undefined]
+**hasArtifacts** | **boolean** | Whether the document has artifact documents | [optional] [default to undefined]
 **contentType** | **string** | Document Content-Type | [optional] [default to undefined]
 **userId** | **string** | User who added document | [optional] [default to undefined]
 **contentLength** | **number** | Document size | [optional] [default to undefined]
 **versionId** | **string** | Document version | [optional] [default to undefined]
 **belongsToDocumentId** | **string** | Parent Document Identifier | [optional] [default to undefined]
+**attributes** | [**Array&lt;DocumentAttribute&gt;**](DocumentAttribute.md) | List of document attributes | [optional] [default to undefined]
 
 ## Example
 
@@ -33,11 +35,13 @@ const instance: ChildDocument = {
     lastModifiedDate,
     checksum,
     documentId,
+    hasArtifacts,
     contentType,
     userId,
     contentLength,
     versionId,
     belongsToDocumentId,
+    attributes,
 };
 ```
 

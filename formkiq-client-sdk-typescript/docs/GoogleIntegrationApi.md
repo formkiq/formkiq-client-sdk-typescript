@@ -26,11 +26,13 @@ const apiInstance = new GoogleIntegrationApi(configuration);
 let documentId: string; //Document Identifier (default to undefined)
 let addGoogleDocumentExportRequest: AddGoogleDocumentExportRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.addGoogleDocumentExport(
     documentId,
     addGoogleDocumentExportRequest,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -41,6 +43,7 @@ const { status, data } = await apiInstance.addGoogleDocumentExport(
 | **addGoogleDocumentExportRequest** | **AddGoogleDocumentExportRequest**|  | |
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type

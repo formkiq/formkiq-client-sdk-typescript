@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **content** | **string** | Document content | [default to undefined]
 **tags** | [**Array&lt;AddDocumentTag&gt;**](AddDocumentTag.md) | List of document tags | [optional] [default to undefined]
 **metadata** | [**Array&lt;AddDocumentMetadata&gt;**](AddDocumentMetadata.md) | List of document Metadata | [optional] [default to undefined]
+**attributes** | [**Array&lt;AddDocumentAttribute&gt;**](AddDocumentAttribute.md) | List of Attributes to add to document | [optional] [default to undefined]
 
 ## Example
 
@@ -35,6 +36,7 @@ const instance: AddChildDocument = {
     content,
     tags,
     metadata,
+    attributes,
 };
 ```
 

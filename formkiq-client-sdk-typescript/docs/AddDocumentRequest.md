@@ -6,6 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **documentId** | **string** | optional Document Identifier (Version 4 UUID), if skipped one will be assigned | [optional] [default to undefined]
+**artifacts** | **boolean** | Whether the document supports artifact documents | [optional] [default to undefined]
+**artifactCategory** | **string** | Artifact Category | [optional] [default to undefined]
 **path** | **string** | Path or Name of document | [optional] [default to undefined]
 **checksumType** | [**ChecksumType**](ChecksumType.md) |  | [optional] [default to undefined]
 **checksum** | **string** | The checksum value to validate the file against | [optional] [default to undefined]
@@ -28,6 +30,8 @@ import { AddDocumentRequest } from 'formkiq-client-sdk-typescript';
 
 const instance: AddDocumentRequest = {
     documentId,
+    artifacts,
+    artifactCategory,
     path,
     checksumType,
     checksum,

@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**documentIds** | **Array&lt;string&gt;** | Documents to compress | [default to undefined]
+**documentIds** | **Array&lt;string&gt;** | Documents to compress | [optional] [default to undefined]
+**documents** | [**Array&lt;DocumentsCompressDocument&gt;**](DocumentsCompressDocument.md) | Documents to compress with optional artifact identifiers | [optional] [default to undefined]
 
 ## Example
 
@@ -14,6 +15,7 @@ import { DocumentsCompressRequest } from 'formkiq-client-sdk-typescript';
 
 const instance: DocumentsCompressRequest = {
     documentIds,
+    documents,
 };
 ```
 

@@ -20,7 +20,7 @@
 #   - Adjust the `-i` (input spec) or `-o` (output directory) values as needed.
 #   - The generator type `typescript-axios` creates a fully typed Axios-based SDK.
 
-VERSION=1.18.0
+VERSION=1.19.0
 
 # URL to the OpenAPI specification (JWT variant)
 OPENAPI_SPEC_URL="https://raw.githubusercontent.com/formkiq/formkiq-core/refs/heads/master/docs/openapi/openapi-jwt.yaml"

@@ -6,7 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Name of API Key | [optional] [default to undefined]
-**permissions** | **Array&lt;string&gt;** | List of permissions | [optional] [default to undefined]
+**groups** | **Array&lt;string&gt;** | Optional list of groups to add as custom claims to API Key | [optional] [default to undefined]
+**permissions** | [**Array&lt;ApiKeyPermission&gt;**](ApiKeyPermission.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -15,6 +16,7 @@ import { AddApiKeyRequest } from 'formkiq-client-sdk-typescript';
 
 const instance: AddApiKeyRequest = {
     name,
+    groups,
     permissions,
 };
 ```

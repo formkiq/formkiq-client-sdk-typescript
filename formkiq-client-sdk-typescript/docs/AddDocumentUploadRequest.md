@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **documentId** | **string** | optional Document Identifier, if skipped one will be assigned | [optional] [default to undefined]
+**artifacts** | **boolean** | Whether the document supports artifact documents | [optional] [default to undefined]
 **path** | **string** | Path or Name of document | [optional] [default to undefined]
 **contentType** | **string** | Document media type | [optional] [default to undefined]
 **width** | **string** | Document Content Width property | [optional] [default to undefined]
@@ -24,6 +25,7 @@ import { AddDocumentUploadRequest } from 'formkiq-client-sdk-typescript';
 
 const instance: AddDocumentUploadRequest = {
     documentId,
+    artifacts,
     path,
     contentType,
     width,

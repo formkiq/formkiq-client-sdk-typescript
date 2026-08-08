@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **matchUsername** | **boolean** | Match Input Username | [optional] [default to undefined]
+**matchUserClaim** | **string** | Matches user claim name to match against the Attribute Key value | [optional] [default to undefined]
 
 ## Example
 
@@ -14,6 +15,7 @@ import { OpaPolicyAttributeInput } from 'formkiq-client-sdk-typescript';
 
 const instance: OpaPolicyAttributeInput = {
     matchUsername,
+    matchUserClaim,
 };
 ```
 

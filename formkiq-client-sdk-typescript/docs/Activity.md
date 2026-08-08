@@ -13,10 +13,23 @@ Name | Type | Description | Notes
 **status** | [**ActivityStatus**](ActivityStatus.md) |  | [optional] [default to undefined]
 **insertedDate** | **string** | Inserted Timestamp | [optional] [default to undefined]
 **userId** | **string** | User who added document | [optional] [default to undefined]
+**delegation** | [**ActivityDelegation**](ActivityDelegation.md) |  | [optional] [default to undefined]
 **documentId** | **any** | Document Identifier | [optional] [default to undefined]
+**artifactId** | **any** | Document Artifact Identifier | [optional] [default to undefined]
 **attributeKey** | **any** | Document Attribute Key | [optional] [default to undefined]
 **entityTypeId** | **string** | Entity Type Identifier | [optional] [default to undefined]
 **entityId** | **string** | Entity Identifier | [optional] [default to undefined]
+**apiKey** | **string** | API Key | [optional] [default to undefined]
+**rulesetId** | **string** | Ruleset Identifier | [optional] [default to undefined]
+**schema** | **string** | Schema Identifier | [optional] [default to undefined]
+**mappingId** | **string** | Mapping Identifier | [optional] [default to undefined]
+**classificationId** | **string** | Classification Identifier | [optional] [default to undefined]
+**ruleId** | **string** | Ruleset Rule Identifier | [optional] [default to undefined]
+**workflowId** | **string** | Workflow Identifier | [optional] [default to undefined]
+**queueId** | **string** | Queue Identifier | [optional] [default to undefined]
+**webhookId** | **string** | Webhook Identifier | [optional] [default to undefined]
+**locale** | **string** | Locale Identifier | [optional] [default to undefined]
+**controlPolicy** | **string** | Control Policy Type | [optional] [default to undefined]
 **changes** | [**{ [key: string]: UserActivityChanges; }**](UserActivityChanges.md) |  | [optional] [default to undefined]
 
 ## Example
@@ -33,10 +46,23 @@ const instance: Activity = {
     status,
     insertedDate,
     userId,
+    delegation,
     documentId,
+    artifactId,
     attributeKey,
     entityTypeId,
     entityId,
+    apiKey,
+    rulesetId,
+    schema,
+    mappingId,
+    classificationId,
+    ruleId,
+    workflowId,
+    queueId,
+    webhookId,
+    locale,
+    controlPolicy,
     changes,
 };
 ```

@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**totalCount** | **number** | Total number of documents that matched the search query. When the number of matches exceeds 10,000, this value will be reported as 10,000+ unless the search request explicitly enables exact total hit tracking.  | [optional] [default to undefined]
 **documents** | [**Array&lt;FulltextSearchItem&gt;**](FulltextSearchItem.md) | List of search result documents | [optional] [default to undefined]
 
 ## Example
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 import { DocumentFulltextResponse } from 'formkiq-client-sdk-typescript';
 
 const instance: DocumentFulltextResponse = {
+    totalCount,
     documents,
 };
 ```

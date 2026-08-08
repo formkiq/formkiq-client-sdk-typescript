@@ -26,12 +26,14 @@ const apiInstance = new UserActivitiesApi(configuration);
 
 let documentId: string; //Document Identifier (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 let next: string; //Next page of results token (optional) (default to undefined)
 let limit: string; //Limit Results (optional) (default to '10')
 
 const { status, data } = await apiInstance.getDocumentUserActivities(
     documentId,
     siteId,
+    artifactId,
     next,
     limit
 );
@@ -43,6 +45,7 @@ const { status, data } = await apiInstance.getDocumentUserActivities(
 |------------- | ------------- | ------------- | -------------|
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 | **next** | [**string**] | Next page of results token | (optional) defaults to undefined|
 | **limit** | [**string**] | Limit Results | (optional) defaults to '10'|
 
@@ -86,9 +89,22 @@ const apiInstance = new UserActivitiesApi(configuration);
 
 let siteId: string; //Site Identifier (optional) (default to undefined)
 let documentId: string; //Document Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 let entityTypeId: string; //EntityType Identifier (optional) (default to undefined)
 let namespace: 'PRESET' | 'CUSTOM'; //Namespace Identifier (optional) (default to undefined)
 let entityId: string; //Entity Identifier (optional) (default to undefined)
+let rulesetId: string; //RulesetId Identifier (optional) (default to undefined)
+let ruleId: string; //RuleId Identifier (optional) (default to undefined)
+let workflowId: string; //Workflow Identifier (optional) (default to undefined)
+let queueId: string; //Queue Identifier (optional) (default to undefined)
+let webhookId: string; //Webhook Identifier (optional) (default to undefined)
+let locale: string; //Site Locale (ISO 639 / ISO 3166) (optional) (default to undefined)
+let attributeKey: string; //Attribute Key (optional) (default to undefined)
+let schema: 'document'; //Schema Type (optional) (default to undefined)
+let classificationId: string; //Classification Id (optional) (default to undefined)
+let mappingId: string; //Mapping Id (optional) (default to undefined)
+let apiKey: string; //Api Key (optional) (default to undefined)
+let controlPolicy: 'opa'; //Control Policy (optional) (default to undefined)
 let start: string; //Start of date-time range (UTC) (optional) (default to undefined)
 let end: string; //End of date-time range (UTC) (optional) (default to undefined)
 let sort: 'ASC' | 'DESC'; //Sort order (default DESC) (optional) (default to undefined)
@@ -99,9 +115,22 @@ let userId: string; //Fetch specific user activities (optional) (default to unde
 const { status, data } = await apiInstance.getResourceActivities(
     siteId,
     documentId,
+    artifactId,
     entityTypeId,
     namespace,
     entityId,
+    rulesetId,
+    ruleId,
+    workflowId,
+    queueId,
+    webhookId,
+    locale,
+    attributeKey,
+    schema,
+    classificationId,
+    mappingId,
+    apiKey,
+    controlPolicy,
     start,
     end,
     sort,
@@ -117,9 +146,22 @@ const { status, data } = await apiInstance.getResourceActivities(
 |------------- | ------------- | ------------- | -------------|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
 | **documentId** | [**string**] | Document Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 | **entityTypeId** | [**string**] | EntityType Identifier | (optional) defaults to undefined|
 | **namespace** | [**&#39;PRESET&#39; | &#39;CUSTOM&#39;**]**Array<&#39;PRESET&#39; &#124; &#39;CUSTOM&#39;>** | Namespace Identifier | (optional) defaults to undefined|
 | **entityId** | [**string**] | Entity Identifier | (optional) defaults to undefined|
+| **rulesetId** | [**string**] | RulesetId Identifier | (optional) defaults to undefined|
+| **ruleId** | [**string**] | RuleId Identifier | (optional) defaults to undefined|
+| **workflowId** | [**string**] | Workflow Identifier | (optional) defaults to undefined|
+| **queueId** | [**string**] | Queue Identifier | (optional) defaults to undefined|
+| **webhookId** | [**string**] | Webhook Identifier | (optional) defaults to undefined|
+| **locale** | [**string**] | Site Locale (ISO 639 / ISO 3166) | (optional) defaults to undefined|
+| **attributeKey** | [**string**] | Attribute Key | (optional) defaults to undefined|
+| **schema** | [**&#39;document&#39;**]**Array<&#39;document&#39;>** | Schema Type | (optional) defaults to undefined|
+| **classificationId** | [**string**] | Classification Id | (optional) defaults to undefined|
+| **mappingId** | [**string**] | Mapping Id | (optional) defaults to undefined|
+| **apiKey** | [**string**] | Api Key | (optional) defaults to undefined|
+| **controlPolicy** | [**&#39;opa&#39;**]**Array<&#39;opa&#39;>** | Control Policy | (optional) defaults to undefined|
 | **start** | [**string**] | Start of date-time range (UTC) | (optional) defaults to undefined|
 | **end** | [**string**] | End of date-time range (UTC) | (optional) defaults to undefined|
 | **sort** | [**&#39;ASC&#39; | &#39;DESC&#39;**]**Array<&#39;ASC&#39; &#124; &#39;DESC&#39;>** | Sort order (default DESC) | (optional) defaults to undefined|

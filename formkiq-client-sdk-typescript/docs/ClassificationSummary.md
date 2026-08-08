@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**classificationId** | **string** | Classification Identifier | [optional] [default to undefined]
+**classificationId** | **string** | Classification Identifier | [default to undefined]
 **name** | **string** | Name of Classification | [optional] [default to undefined]
 **userId** | **string** |  | [optional] [default to undefined]
 **insertedDate** | **string** | Inserted Timestamp | [optional] [default to undefined]

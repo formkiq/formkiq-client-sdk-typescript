@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **position** | [**DocumentGenerateInsertDocumentPosition**](DocumentGenerateInsertDocumentPosition.md) |  | [default to undefined]
 **documentId** | **string** | Document Identifier of the data source document | [default to undefined]
+**artifactId** | **string** | Document Artifact Identifier of the data source document | [optional] [default to undefined]
 
 ## Example
 
@@ -16,6 +17,7 @@ import { DocumentGenerateInsertDocument } from 'formkiq-client-sdk-typescript';
 const instance: DocumentGenerateInsertDocument = {
     position,
     documentId,
+    artifactId,
 };
 ```
 

@@ -6,6 +6,8 @@ Status of the Document Action
 
 * `Complete` (value: `'COMPLETE'`)
 
+* `AsyncComplete` (value: `'ASYNC_COMPLETE'`)
+
 * `Failed` (value: `'FAILED'`)
 
 * `InQueue` (value: `'IN_QUEUE'`)

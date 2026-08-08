@@ -251,11 +251,13 @@ const apiInstance = new MappingsApi(configuration);
 let mappingId: string; //Mapping Identifier (default to undefined)
 let setMappingRequest: SetMappingRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let createIfMissing: boolean; //When true, skip checking whether the resource exists before setting it (optional) (default to false)
 
 const { status, data } = await apiInstance.setMapping(
     mappingId,
     setMappingRequest,
-    siteId
+    siteId,
+    createIfMissing
 );
 ```
 
@@ -266,6 +268,7 @@ const { status, data } = await apiInstance.setMapping(
 | **setMappingRequest** | **SetMappingRequest**|  | |
 | **mappingId** | [**string**] | Mapping Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **createIfMissing** | [**boolean**] | When true, skip checking whether the resource exists before setting it | (optional) defaults to false|
 
 
 ### Return type

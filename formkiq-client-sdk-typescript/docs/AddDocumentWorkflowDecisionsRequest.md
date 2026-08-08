@@ -5,9 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**stepId** | **string** | Workflow Step Identifier | [optional] [default to undefined]
 **comments** | **string** | Workflow decision comments | [optional] [default to undefined]
-**decision** | **string** |  | [default to undefined]
+**decision** | [**WorkflowDecision**](WorkflowDecision.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -15,7 +14,6 @@ Name | Type | Description | Notes
 import { AddDocumentWorkflowDecisionsRequest } from 'formkiq-client-sdk-typescript';
 
 const instance: AddDocumentWorkflowDecisionsRequest = {
-    stepId,
     comments,
     decision,
 };
