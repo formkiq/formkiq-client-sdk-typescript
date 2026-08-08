@@ -17,6 +17,10 @@ Name | Type | Description | Notes
 **checksum** | **string** | Document checksum, changes when document file changes | [optional] [default to undefined]
 **checksumType** | [**ChecksumType**](ChecksumType.md) |  | [optional] [default to undefined]
 **documentId** | **string** | Document Identifier | [optional] [default to undefined]
+**artifactId** | **string** | Document Artifact Identifier | [optional] [default to undefined]
+**promotedArtifactId** | **string** | Promoted Artifact Identifier | [optional] [default to undefined]
+**artifactCategory** | **string** | Document Artifact Category | [optional] [default to undefined]
+**hasArtifacts** | **boolean** | Whether the document has artifact documents | [optional] [default to undefined]
 **contentType** | **string** | Document Content-Type | [optional] [default to undefined]
 **userId** | **string** | User who added document | [optional] [default to undefined]
 **contentLength** | **number** | Document size | [optional] [default to undefined]
@@ -47,6 +51,10 @@ const instance: SearchResultDocument = {
     checksum,
     checksumType,
     documentId,
+    artifactId,
+    promotedArtifactId,
+    artifactCategory,
+    hasArtifacts,
     contentType,
     userId,
     contentLength,

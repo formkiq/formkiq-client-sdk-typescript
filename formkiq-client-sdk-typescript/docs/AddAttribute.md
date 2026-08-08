@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **key** | **string** | Attribute Key | [default to undefined]
 **dataType** | [**AttributeDataType**](AttributeDataType.md) |  | [optional] [default to undefined]
+**validationRegex** | **string** | Attribute Value Regex Validation | [optional] [default to undefined]
 **type** | [**AttributeType**](AttributeType.md) |  | [optional] [default to undefined]
 **watermark** | [**Watermark**](Watermark.md) |  | [optional] [default to undefined]
 
@@ -18,6 +19,7 @@ import { AddAttribute } from 'formkiq-client-sdk-typescript';
 const instance: AddAttribute = {
     key,
     dataType,
+    validationRegex,
     type,
     watermark,
 };

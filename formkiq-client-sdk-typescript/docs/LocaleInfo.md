@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**locale** | **string** | Name of Locale | [optional] [default to undefined]
+**locale** | **string** | Name of Locale | [default to undefined]
 
 ## Example
 

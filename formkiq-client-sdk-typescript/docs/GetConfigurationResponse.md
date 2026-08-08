@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **maxDocuments** | **string** | Set Maximum number of Documents allowed | [optional] [default to undefined]
 **maxWebhooks** | **string** | Set Maximum number of Webhooks allowed | [optional] [default to undefined]
 **notificationEmail** | **string** | Email address to use for notifications (Must be verified identity created in AWS SES) | [optional] [default to undefined]
+**document** | [**DocumentConfig**](DocumentConfig.md) |  | [optional] [default to undefined]
 **ocr** | [**OcrConfig**](OcrConfig.md) |  | [optional] [default to undefined]
 **google** | [**GoogleConfig**](GoogleConfig.md) |  | [optional] [default to undefined]
 **docusign** | [**DocusignConfig**](DocusignConfig.md) |  | [optional] [default to undefined]
@@ -25,6 +26,7 @@ const instance: GetConfigurationResponse = {
     maxDocuments,
     maxWebhooks,
     notificationEmail,
+    document,
     ocr,
     google,
     docusign,

@@ -7,11 +7,14 @@ All URIs are relative to *http://localhost*
 |[**addEntity**](#addentity) | **POST** /entities/{entityTypeId} | Add New Entity|
 |[**addEntityType**](#addentitytype) | **POST** /entityTypes | Add New EntityType|
 |[**deleteEntity**](#deleteentity) | **DELETE** /entities/{entityTypeId}/{entityId} | Deletes Entity|
+|[**deleteEntityAttribute**](#deleteentityattribute) | **DELETE** /entities/{entityTypeId}/{entityId}/attributes/{attributeKey} | Deletes Entity Attribute|
 |[**deleteEntityType**](#deleteentitytype) | **DELETE** /entityTypes/{entityTypeId} | Deletes Entity Type|
 |[**getEntities**](#getentities) | **GET** /entities/{entityTypeId} | Get Entities|
 |[**getEntity**](#getentity) | **GET** /entities/{entityTypeId}/{entityId} | Get Entity|
 |[**getEntityType**](#getentitytype) | **GET** /entityTypes/{entityTypeId} | Get EntityType|
 |[**getEntityTypes**](#getentitytypes) | **GET** /entityTypes | Get EntityTypes|
+|[**setEntity**](#setentity) | **PUT** /entities/{entityTypeId}/{entityId} | Set Entity|
+|[**setEntityType**](#setentitytype) | **PUT** /entityTypes/{entityTypeId} | Set EntityType|
 |[**updateEntity**](#updateentity) | **PATCH** /entities/{entityTypeId}/{entityId} | Update Entity|
 
 # **addEntity**
@@ -165,6 +168,66 @@ const { status, data } = await apiInstance.deleteEntity(
 |------------- | ------------- | ------------- | -------------|
 | **entityTypeId** | [**string**] | EntityType Identifier | defaults to undefined|
 | **entityId** | [**string**] | Entity Identifier | defaults to undefined|
+| **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+
+
+### Return type
+
+**DeleteResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteEntityAttribute**
+> DeleteResponse deleteEntityAttribute()
+
+Deletes Entity Attribute
+
+### Example
+
+```typescript
+import {
+    EntityApi,
+    Configuration
+} from 'formkiq-client-sdk-typescript';
+
+const configuration = new Configuration();
+const apiInstance = new EntityApi(configuration);
+
+let entityTypeId: string; //EntityType Identifier (default to undefined)
+let entityId: string; //Entity Identifier (default to undefined)
+let attributeKey: string; //Attribute Key (default to undefined)
+let siteId: string; //Site Identifier (optional) (default to undefined)
+
+const { status, data } = await apiInstance.deleteEntityAttribute(
+    entityTypeId,
+    entityId,
+    attributeKey,
+    siteId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **entityTypeId** | [**string**] | EntityType Identifier | defaults to undefined|
+| **entityId** | [**string**] | Entity Identifier | defaults to undefined|
+| **attributeKey** | [**string**] | Attribute Key | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
 
 
@@ -480,6 +543,136 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **setEntity**
+> SetResponse setEntity(setEntityRequest)
+
+Sets a Entity
+
+### Example
+
+```typescript
+import {
+    EntityApi,
+    Configuration,
+    SetEntityRequest
+} from 'formkiq-client-sdk-typescript';
+
+const configuration = new Configuration();
+const apiInstance = new EntityApi(configuration);
+
+let entityTypeId: string; //EntityType Identifier (default to undefined)
+let entityId: string; //Entity Identifier (default to undefined)
+let setEntityRequest: SetEntityRequest; //
+let siteId: string; //Site Identifier (optional) (default to undefined)
+let namespace: 'PRESET' | 'CUSTOM'; //Namespace Identifier (optional) (default to undefined)
+let createIfMissing: boolean; //When true, skip checking whether the resource exists before setting it (optional) (default to false)
+
+const { status, data } = await apiInstance.setEntity(
+    entityTypeId,
+    entityId,
+    setEntityRequest,
+    siteId,
+    namespace,
+    createIfMissing
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **setEntityRequest** | **SetEntityRequest**|  | |
+| **entityTypeId** | [**string**] | EntityType Identifier | defaults to undefined|
+| **entityId** | [**string**] | Entity Identifier | defaults to undefined|
+| **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **namespace** | [**&#39;PRESET&#39; | &#39;CUSTOM&#39;**]**Array<&#39;PRESET&#39; &#124; &#39;CUSTOM&#39;>** | Namespace Identifier | (optional) defaults to undefined|
+| **createIfMissing** | [**boolean**] | When true, skip checking whether the resource exists before setting it | (optional) defaults to false|
+
+
+### Return type
+
+**SetResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+|**400** | 400 OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **setEntityType**
+> SetResponse setEntityType(setEntityTypeRequest)
+
+Sets a Entity Type
+
+### Example
+
+```typescript
+import {
+    EntityApi,
+    Configuration,
+    SetEntityTypeRequest
+} from 'formkiq-client-sdk-typescript';
+
+const configuration = new Configuration();
+const apiInstance = new EntityApi(configuration);
+
+let entityTypeId: string; //EntityType Identifier (default to undefined)
+let setEntityTypeRequest: SetEntityTypeRequest; //
+let siteId: string; //Site Identifier (optional) (default to undefined)
+let createIfMissing: boolean; //When true, skip checking whether the resource exists before setting it (optional) (default to false)
+
+const { status, data } = await apiInstance.setEntityType(
+    entityTypeId,
+    setEntityTypeRequest,
+    siteId,
+    createIfMissing
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **setEntityTypeRequest** | **SetEntityTypeRequest**|  | |
+| **entityTypeId** | [**string**] | EntityType Identifier | defaults to undefined|
+| **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **createIfMissing** | [**boolean**] | When true, skip checking whether the resource exists before setting it | (optional) defaults to false|
+
+
+### Return type
+
+**SetResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+|**400** | 400 OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

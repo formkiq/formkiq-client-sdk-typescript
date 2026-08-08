@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**artifactCategory** | **string** | Artifact Category | [optional] [default to undefined]
 **path** | **string** | Path or Name of document | [optional] [default to undefined]
 **width** | **string** | Document Content Width property | [optional] [default to undefined]
 **height** | **string** | Document Content Height property | [optional] [default to undefined]
@@ -26,6 +27,7 @@ Name | Type | Description | Notes
 import { UpdateDocumentRequest } from 'formkiq-client-sdk-typescript';
 
 const instance: UpdateDocumentRequest = {
+    artifactCategory,
     path,
     width,
     height,

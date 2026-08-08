@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **documentId** | **string** | Document Identifier | [optional] [default to undefined]
+**artifactId** | **string** | Artifact Identifier | [optional] [default to undefined]
 **url** | **string** | Document content url | [optional] [default to undefined]
 **headers** | **{ [key: string]: object; }** |  | [optional] [default to undefined]
 
@@ -16,6 +17,7 @@ import { GetDocumentUrlResponse } from 'formkiq-client-sdk-typescript';
 
 const instance: GetDocumentUrlResponse = {
     documentId,
+    artifactId,
     url,
     headers,
 };

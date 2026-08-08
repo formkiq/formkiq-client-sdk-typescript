@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** | Name of Workflow | [optional] [default to undefined]
-**workflowId** | **string** | Workflow identifier | [optional] [default to undefined]
+**workflowId** | **string** | Workflow identifier | [default to undefined]
 **description** | **string** | Description of Workflow | [optional] [default to undefined]
 **insertedDate** | **string** | Inserted Timestamp | [optional] [default to undefined]
 **userId** | **string** | User who created workflow | [optional] [default to undefined]

@@ -11,7 +11,8 @@ Name | Type | Description | Notes
 **ocrOutputType** | [**OcrOutputType**](OcrOutputType.md) |  | [optional] [default to undefined]
 **ocrNumberOfPages** | **string** | Number of pages to OCR (from start) (-1 all) | [optional] [default to undefined]
 **addPdfDetectedCharactersAsText** | **string** | OCR: For the rewriting of the PDF document, converting any image text to searchable text | [optional] [default to undefined]
-**llmPromptEntityName** | **string** | DATA_CLASSIFICATION: Set the LLM Prompt Entity Name | [optional] [default to undefined]
+**llmPromptEntityName** | **string** | LLMPROMPT, DATA_CLASSIFICATION, METADATA_EXTRACTION: Set the LLM Prompt Entity Name | [optional] [default to undefined]
+**modelId** | **string** | LLMPROMPT: Override the LLM Prompt Entity model id | [optional] [default to undefined]
 **url** | **string** | Webhook: Callback URL | [optional] [default to undefined]
 **characterMax** | **string** | Fulltext: Maximum number of characters (-1 unlimited, Typesense defaults to 2048 characters) | [optional] [default to undefined]
 **engine** | **string** | DocumentTagging: Engine to use for document tagging generation | [optional] [default to undefined]
@@ -24,9 +25,11 @@ Name | Type | Description | Notes
 **tags** | **string** | DocumentTagging: Comma-deliminted list of keywords to generate tags for | [optional] [default to undefined]
 **mappingId** | **string** | Id of Mapping | [optional] [default to undefined]
 **eventBusName** | **string** | The name or ARN of the event bus to receive the event | [optional] [default to undefined]
+**checksumType** | [**ChecksumType**](ChecksumType.md) |  | [optional] [default to undefined]
 **width** | **string** | The width of the image to resize (or \&#39;auto\&#39;) | [optional] [default to undefined]
 **height** | **string** | The height of the image to resize (or \&#39;auto\&#39;) | [optional] [default to undefined]
-**path** | **string** | The path to use when creating resized document (optional) | [optional] [default to undefined]
+**path** | **string** | MOVE: Destination folder path, must end with \&#39;/\&#39;; RESIZE: Path to use when creating resized document (optional) | [optional] [default to undefined]
+**deleteType** | [**DeleteType**](DeleteType.md) |  | [optional] [default to undefined]
 **outputType** | **string** | The output type of the image | [optional] [default to undefined]
 
 ## Example
@@ -42,6 +45,7 @@ const instance: AddActionParameters = {
     ocrNumberOfPages,
     addPdfDetectedCharactersAsText,
     llmPromptEntityName,
+    modelId,
     url,
     characterMax,
     engine,
@@ -54,9 +58,11 @@ const instance: AddActionParameters = {
     tags,
     mappingId,
     eventBusName,
+    checksumType,
     width,
     height,
     path,
+    deleteType,
     outputType,
 };
 ```

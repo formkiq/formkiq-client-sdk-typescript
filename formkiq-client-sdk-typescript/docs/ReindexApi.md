@@ -26,11 +26,13 @@ const apiInstance = new ReindexApi(configuration);
 let documentId: string; //Document Identifier (default to undefined)
 let addReindexDocumentRequest: AddReindexDocumentRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.addReindexDocument(
     documentId,
     addReindexDocumentRequest,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -41,6 +43,7 @@ const { status, data } = await apiInstance.addReindexDocument(
 | **addReindexDocumentRequest** | **AddReindexDocumentRequest**|  | |
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type

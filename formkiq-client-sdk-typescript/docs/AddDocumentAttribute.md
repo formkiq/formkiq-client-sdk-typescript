@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **entityTypeId** | **string** | EntityType Identifier or Entity Type Name | [default to undefined]
 **entityId** | **string** | Entity Identifier | [default to undefined]
 **namespace** | [**EntityTypeNamespace**](EntityTypeNamespace.md) |  | [optional] [default to undefined]
+**entities** | [**Array&lt;AddDocumentAttributeEntityValue&gt;**](AddDocumentAttributeEntityValue.md) | Attribute with entity values | [default to undefined]
 
 ## Example
 
@@ -38,6 +39,7 @@ const instance: AddDocumentAttribute = {
     entityTypeId,
     entityId,
     namespace,
+    entities,
 };
 ```
 

@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 **siteId** | **string** | Site Identifier | [optional] [default to undefined]
 **title** | **string** | Site Title | [optional] [default to undefined]
 **status** | [**SiteStatus**](SiteStatus.md) |  | [optional] [default to undefined]
-**permission** | **string** | SiteId permission level | [optional] [default to undefined]
+**permission** | [**SitePermission**](SitePermission.md) |  | [optional] [default to undefined]
+**roles** | **Array&lt;string&gt;** | List of roles used to get permissions | [optional] [default to undefined]
 **permissions** | [**Array&lt;SiteGroupPermissions&gt;**](SiteGroupPermissions.md) |  | [optional] [default to undefined]
 **uploadEmail** | **string** | SiteId document upload email address | [optional] [default to undefined]
 **config** | [**SiteConfig**](SiteConfig.md) |  | [optional] [default to undefined]
@@ -24,6 +25,7 @@ const instance: Site = {
     title,
     status,
     permission,
+    roles,
     permissions,
     uploadEmail,
     config,

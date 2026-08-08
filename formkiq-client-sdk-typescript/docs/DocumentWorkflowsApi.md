@@ -41,11 +41,13 @@ const apiInstance = new DocumentWorkflowsApi(configuration);
 let documentId: string; //Document Identifier (default to undefined)
 let addDocumentWorkflowRequest: AddDocumentWorkflowRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.addDocumentWorkflow(
     documentId,
     addDocumentWorkflowRequest,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -56,6 +58,7 @@ const { status, data } = await apiInstance.addDocumentWorkflow(
 | **addDocumentWorkflowRequest** | **AddDocumentWorkflowRequest**|  | |
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
@@ -101,12 +104,14 @@ let documentId: string; //Document Identifier (default to undefined)
 let workflowId: string; //Workflow Identifier (default to undefined)
 let addDocumentWorkflowDecisionsRequest: AddDocumentWorkflowDecisionsRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.addDocumentWorkflowDecisions(
     documentId,
     workflowId,
     addDocumentWorkflowDecisionsRequest,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -118,6 +123,7 @@ const { status, data } = await apiInstance.addDocumentWorkflowDecisions(
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **workflowId** | [**string**] | Workflow Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
@@ -309,7 +315,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteWorkflow**
-> DeleteWorkflowResponse deleteWorkflow()
+> DeleteResponse deleteWorkflow()
 
 Delete a Workflow; available as an Add-On Module
 
@@ -343,7 +349,7 @@ const { status, data } = await apiInstance.deleteWorkflow(
 
 ### Return type
 
-**DeleteWorkflowResponse**
+**DeleteResponse**
 
 ### Authorization
 
@@ -381,11 +387,13 @@ const apiInstance = new DocumentWorkflowsApi(configuration);
 let documentId: string; //Document Identifier (default to undefined)
 let workflowId: string; //Workflow Identifier (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getDocumentWorkflow(
     documentId,
     workflowId,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -396,6 +404,7 @@ const { status, data } = await apiInstance.getDocumentWorkflow(
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **workflowId** | [**string**] | Workflow Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
@@ -438,10 +447,12 @@ const apiInstance = new DocumentWorkflowsApi(configuration);
 
 let documentId: string; //Document Identifier (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getDocumentWorkflows(
     documentId,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -451,6 +462,7 @@ const { status, data } = await apiInstance.getDocumentWorkflows(
 |------------- | ------------- | ------------- | -------------|
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
@@ -821,7 +833,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **setWorkflow**
-> SetWorkflowResponse setWorkflow(setWorkflowRequest)
+> SetResponse setWorkflow(setWorkflowRequest)
 
 Set a Workflow details; available as an Add-On Module
 
@@ -840,11 +852,13 @@ const apiInstance = new DocumentWorkflowsApi(configuration);
 let workflowId: string; //Workflow Identifier (default to undefined)
 let setWorkflowRequest: SetWorkflowRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let createIfMissing: boolean; //When true, skip checking whether the resource exists before setting it (optional) (default to false)
 
 const { status, data } = await apiInstance.setWorkflow(
     workflowId,
     setWorkflowRequest,
-    siteId
+    siteId,
+    createIfMissing
 );
 ```
 
@@ -855,11 +869,12 @@ const { status, data } = await apiInstance.setWorkflow(
 | **setWorkflowRequest** | **SetWorkflowRequest**|  | |
 | **workflowId** | [**string**] | Workflow Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **createIfMissing** | [**boolean**] | When true, skip checking whether the resource exists before setting it | (optional) defaults to false|
 
 
 ### Return type
 
-**SetWorkflowResponse**
+**SetResponse**
 
 ### Authorization
 
@@ -874,13 +889,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | 20) OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+|**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
 |**400** | 400 BAD REQUEST |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateWorkflow**
-> UpdateWorkflowResponse updateWorkflow(updateWorkflowRequest)
+> UpdateResponse updateWorkflow(updateWorkflowRequest)
 
 Update a Workflow details; available as an Add-On Module
 
@@ -918,7 +933,7 @@ const { status, data } = await apiInstance.updateWorkflow(
 
 ### Return type
 
-**UpdateWorkflowResponse**
+**UpdateResponse**
 
 ### Authorization
 
@@ -933,7 +948,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** | 20) OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+|**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
 |**400** | 400 BAD REQUEST |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

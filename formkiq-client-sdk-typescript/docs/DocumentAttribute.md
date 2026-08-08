@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **insertedDate** | **string** | Inserted Timestamp | [optional] [default to undefined]
 **userId** | **string** | User who added attribute | [optional] [default to undefined]
 **valueType** | [**AttributeValueType**](AttributeValueType.md) |  | [optional] [default to undefined]
+**entity** | [**Entity**](Entity.md) |  | [optional] [default to undefined]
+**entities** | [**Array&lt;Entity&gt;**](Entity.md) | Attribute with entity values | [optional] [default to undefined]
 
 ## Example
 
@@ -30,6 +32,8 @@ const instance: DocumentAttribute = {
     insertedDate,
     userId,
     valueType,
+    entity,
+    entities,
 };
 ```
 

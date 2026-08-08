@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **text** | **string** | Full text search | [optional] [default to undefined]
 **meta** | [**DocumentSearchMeta**](DocumentSearchMeta.md) |  | [optional] [default to undefined]
+**filename** | [**DocumentSearchFilename**](DocumentSearchFilename.md) |  | [optional] [default to undefined]
+**folder** | [**DocumentSearchFolder**](DocumentSearchFolder.md) |  | [optional] [default to undefined]
 **attribute** | [**DocumentSearchAttribute**](DocumentSearchAttribute.md) |  | [optional] [default to undefined]
 **attributes** | [**Array&lt;DocumentSearchAttribute&gt;**](DocumentSearchAttribute.md) | List of Composite Key attributes to filter search results on | [optional] [default to undefined]
 **tag** | [**DocumentSearchTag**](DocumentSearchTag.md) |  | [optional] [default to undefined]
@@ -22,6 +24,8 @@ import { DocumentSearch } from 'formkiq-client-sdk-typescript';
 const instance: DocumentSearch = {
     text,
     meta,
+    filename,
+    folder,
     attribute,
     attributes,
     tag,

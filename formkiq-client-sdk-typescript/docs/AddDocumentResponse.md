@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **documentId** | **string** | Document Identifier | [optional] [default to undefined]
+**artifactId** | **string** | Artifact Identifier | [optional] [default to undefined]
 **siteId** | **string** | Site Identifier | [optional] [default to undefined]
 **uploadUrl** | **string** | Url to upload document to | [optional] [default to undefined]
 **headers** | **{ [key: string]: object; }** |  | [optional] [default to undefined]
@@ -18,6 +19,7 @@ import { AddDocumentResponse } from 'formkiq-client-sdk-typescript';
 
 const instance: AddDocumentResponse = {
     documentId,
+    artifactId,
     siteId,
     uploadUrl,
     headers,

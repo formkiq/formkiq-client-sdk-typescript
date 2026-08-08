@@ -7,18 +7,21 @@ All URIs are relative to *http://localhost*
 |[**addApiKey**](#addapikey) | **POST** /sites/{siteId}/apiKeys | Add API Key|
 |[**addLocale**](#addlocale) | **POST** /sites/{siteId}/locales | Add Locale|
 |[**addLocaleResourceItem**](#addlocaleresourceitem) | **POST** /sites/{siteId}/locales/{locale}/resourceItems | Add Locale Resource Item|
-|[**addOpenSearchRestoreSnapshot**](#addopensearchrestoresnapshot) | **POST** /sites/{siteId}/opensearch/snapshots/{snapshotName}/restore | Add an OpenSearch Restore Snapshot|
-|[**addOpenSearchSnapshot**](#addopensearchsnapshot) | **POST** /sites/{siteId}/opensearch/snapshots/{snapshotName} | Add an OpenSearch Snapshot|
+|[**addOpenSearchRestoreSnapshot**](#addopensearchrestoresnapshot) | **POST** /sites/{siteId}/opensearch/snapshots/{snapshotName}/restore | Restore site OpenSearch snapshot|
+|[**addOpenSearchSnapshot**](#addopensearchsnapshot) | **POST** /sites/{siteId}/opensearch/snapshots/{snapshotName} | Create site OpenSearch snapshot|
 |[**addSite**](#addsite) | **POST** /sites | Add Site|
+|[**addSystemInferenceModelAgreement**](#addsysteminferencemodelagreement) | **POST** /system/inferenceModels/agreement | Agree to a system inference model|
+|[**cleanupOpenSearchSnapshotRepository**](#cleanupopensearchsnapshotrepository) | **POST** /sites/global/opensearch/snapshotRepositories/{repositoryName}/cleanup | Cleanup OpenSearch snapshot repository|
 |[**deleteApiKey**](#deleteapikey) | **DELETE** /sites/{siteId}/apiKeys/{apiKey} | Delete API Key|
 |[**deleteLocale**](#deletelocale) | **DELETE** /sites/{siteId}/locales/{locale} | Delete Locale|
 |[**deleteLocaleResourceItem**](#deletelocaleresourceitem) | **DELETE** /sites/{siteId}/locales/{locale}/resourceItems/{itemKey} | Delete Local Resource Item|
 |[**deleteOpenSearchIndex**](#deleteopensearchindex) | **DELETE** /sites/{siteId}/opensearch/index | Deletes site(s) OpenSearch index|
 |[**deleteOpenSearchIndexByName**](#deleteopensearchindexbyname) | **DELETE** /sites/global/opensearch/indices/{indexName} | Deletes OpenSearch index by name|
-|[**deleteOpenSearchRestoreSnapshot**](#deleteopensearchrestoresnapshot) | **DELETE** /sites/{siteId}/opensearch/snapshots/{snapshotName}/restore | Deletes site(s) OpenSearch Restore Snapshot|
-|[**deleteOpenSearchSnapshot**](#deleteopensearchsnapshot) | **DELETE** /sites/{siteId}/opensearch/snapshots/{snapshotName} | Deletes site(s) OpenSearch Snapshot|
-|[**deleteOpenSearchSnapshotRepository**](#deleteopensearchsnapshotrepository) | **DELETE** /sites/{siteId}/opensearch/snapshotRepository | Deletes site(s) OpenSearch Snapshot Repository|
+|[**deleteOpenSearchRestoreSnapshot**](#deleteopensearchrestoresnapshot) | **DELETE** /sites/{siteId}/opensearch/snapshots/{snapshotName}/restore | Delete restored OpenSearch snapshot index|
+|[**deleteOpenSearchSnapshot**](#deleteopensearchsnapshot) | **DELETE** /sites/{siteId}/opensearch/snapshots/{snapshotName} | Delete site OpenSearch snapshot|
+|[**deleteOpenSearchSnapshotRepository**](#deleteopensearchsnapshotrepository) | **DELETE** /sites/{siteId}/opensearch/snapshotRepository | Delete site OpenSearch snapshot repository|
 |[**deleteSiteGroup**](#deletesitegroup) | **DELETE** /sites/{siteId}/groups/{groupName} | Deletes Site Group and permissions|
+|[**generateDelegationToken**](#generatedelegationtoken) | **POST** /sites/{siteId}/delegationTokens | Generate a delegation token|
 |[**getAllOpenSearchIndices**](#getallopensearchindices) | **GET** /sites/global/opensearch/indices | Get all OpenSearch indices|
 |[**getApiKeys**](#getapikeys) | **GET** /sites/{siteId}/apiKeys | Get API Keys|
 |[**getConfiguration**](#getconfiguration) | **GET** /sites/{siteId}/configuration | Get site configuration|
@@ -27,13 +30,15 @@ All URIs are relative to *http://localhost*
 |[**getLocales**](#getlocales) | **GET** /sites/{siteId}/locales | Get Locales|
 |[**getOpenSearchIndex**](#getopensearchindex) | **GET** /sites/{siteId}/opensearch/index | Get site(s) OpenSearch index settings|
 |[**getOpenSearchIndices**](#getopensearchindices) | **GET** /sites/{siteId}/opensearch/indices | Get site(s) OpenSearch indices|
-|[**getOpenSearchSnapshot**](#getopensearchsnapshot) | **GET** /sites/{siteId}/opensearch/snapshots/{snapshotName} | Get site(s) OpenSearch snapshot|
-|[**getOpenSearchSnapshotRepositories**](#getopensearchsnapshotrepositories) | **GET** /sites/global/opensearch/snapshotRepositories | Get site(s) OpenSearch snapshot repositories|
-|[**getOpenSearchSnapshotRepository**](#getopensearchsnapshotrepository) | **GET** /sites/{siteId}/opensearch/snapshotRepository | Get site(s) OpenSearch snapshot repository|
-|[**getOpenSearchSnapshots**](#getopensearchsnapshots) | **GET** /sites/{siteId}/opensearch/snapshots | Get site(s) OpenSearch snapshots|
+|[**getOpenSearchSnapshot**](#getopensearchsnapshot) | **GET** /sites/{siteId}/opensearch/snapshots/{snapshotName} | Get site OpenSearch snapshot|
+|[**getOpenSearchSnapshotRepositories**](#getopensearchsnapshotrepositories) | **GET** /sites/global/opensearch/snapshotRepositories | List OpenSearch snapshot repositories|
+|[**getOpenSearchSnapshotRepository**](#getopensearchsnapshotrepository) | **GET** /sites/{siteId}/opensearch/snapshotRepository | Get site OpenSearch snapshot repository|
+|[**getOpenSearchSnapshots**](#getopensearchsnapshots) | **GET** /sites/{siteId}/opensearch/snapshots | List site OpenSearch snapshots|
 |[**getSiteGroup**](#getsitegroup) | **GET** /sites/{siteId}/groups/{groupName} | Get group and permissions belonging to site|
 |[**getSiteGroups**](#getsitegroups) | **GET** /sites/{siteId}/groups | Get group(s) and permissions belonging to site|
 |[**getSites**](#getsites) | **GET** /sites | Get site(s) access|
+|[**getSystemConfiguration**](#getsystemconfiguration) | **GET** /system/configuration | Get system configuration|
+|[**getSystemInferenceModels**](#getsysteminferencemodels) | **GET** /system/inferenceModels | Get system inference models|
 |[**getVersion**](#getversion) | **GET** /version | Get FormKiQ version|
 |[**setLocaleResourceItem**](#setlocaleresourceitem) | **PUT** /sites/{siteId}/locales/{locale}/resourceItems/{itemKey} | Set Locale Resource Item|
 |[**setOpenSearchIndex**](#setopensearchindex) | **PUT** /sites/{siteId}/opensearch/index | Set site(s) OpenSearch index settings|
@@ -41,6 +46,7 @@ All URIs are relative to *http://localhost*
 |[**setSiteGroupPermissions**](#setsitegrouppermissions) | **PUT** /sites/{siteId}/groups/{groupName}/permissions | Set Site\&#39;s Group Permissions|
 |[**updateConfiguration**](#updateconfiguration) | **PATCH** /sites/{siteId}/configuration | Update site configuration|
 |[**updateSite**](#updatesite) | **PATCH** /sites/{siteId} | Update Site|
+|[**updateSystemConfiguration**](#updatesystemconfiguration) | **PATCH** /system/configuration | Update system configuration|
 
 # **addApiKey**
 > AddApiKeyResponse addApiKey(addApiKeyRequest)
@@ -213,7 +219,7 @@ No authorization required
 # **addOpenSearchRestoreSnapshot**
 > AddResponse addOpenSearchRestoreSnapshot()
 
-Add an OpenSearch Restore Snapshot
+Restores the specified snapshot into a separate OpenSearch index for the site.  The restored index is created from the site\'s current index name with the snapshot name and \"_restored\" suffix. For provisioned OpenSearch domains, the snapshot is read from the site\'s S3 snapshot repository. For OpenSearch Serverless, the snapshot is read from the automated snapshot repository.
 
 ### Example
 
@@ -267,7 +273,7 @@ No authorization required
 # **addOpenSearchSnapshot**
 > AddResponse addOpenSearchSnapshot()
 
-Add an OpenSearch Snapshot
+Creates a manual snapshot of the specified site\'s OpenSearch index.  If the site\'s S3 snapshot repository does not already exist, it is registered before the snapshot is created. The supplied snapshot name is stored with the site prefix. This operation is not supported for OpenSearch Serverless.
 
 ### Example
 
@@ -368,6 +374,116 @@ No authorization required
 |-------------|-------------|------------------|
 |**201** | 201 CREATED |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
 |**400** | 400 OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **addSystemInferenceModelAgreement**
+> AddResponse addSystemInferenceModelAgreement(addSystemInferenceModelAgreementRequest)
+
+Agree to the Bedrock model usage agreement for a system inference model
+
+### Example
+
+```typescript
+import {
+    SystemManagementApi,
+    Configuration,
+    AddSystemInferenceModelAgreementRequest
+} from 'formkiq-client-sdk-typescript';
+
+const configuration = new Configuration();
+const apiInstance = new SystemManagementApi(configuration);
+
+let addSystemInferenceModelAgreementRequest: AddSystemInferenceModelAgreementRequest; //
+
+const { status, data } = await apiInstance.addSystemInferenceModelAgreement(
+    addSystemInferenceModelAgreementRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **addSystemInferenceModelAgreementRequest** | **AddSystemInferenceModelAgreementRequest**|  | |
+
+
+### Return type
+
+**AddResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+|**400** | 400 Bad Request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cleanupOpenSearchSnapshotRepository**
+> CleanupOpenSearchSnapshotRepositoryResponse cleanupOpenSearchSnapshotRepository()
+
+Cleans up stale data in the specified OpenSearch snapshot repository.  This endpoint clears data no longer referenced by any existing snapshot. This operation is not supported for OpenSearch Serverless.
+
+### Example
+
+```typescript
+import {
+    SystemManagementApi,
+    Configuration
+} from 'formkiq-client-sdk-typescript';
+
+const configuration = new Configuration();
+const apiInstance = new SystemManagementApi(configuration);
+
+let repositoryName: string; //Snapshot Repository Name (default to undefined)
+let clusterManagerTimeout: string; //The amount of time to wait for a response from the cluster manager node. (optional) (default to undefined)
+let timeout: string; //The amount of time to wait for the operation to complete. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.cleanupOpenSearchSnapshotRepository(
+    repositoryName,
+    clusterManagerTimeout,
+    timeout
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **repositoryName** | [**string**] | Snapshot Repository Name | defaults to undefined|
+| **clusterManagerTimeout** | [**string**] | The amount of time to wait for a response from the cluster manager node. | (optional) defaults to undefined|
+| **timeout** | [**string**] | The amount of time to wait for the operation to complete. | (optional) defaults to undefined|
+
+
+### Return type
+
+**CleanupOpenSearchSnapshotRepositoryResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -641,7 +757,7 @@ No authorization required
 # **deleteOpenSearchRestoreSnapshot**
 > DeleteResponse deleteOpenSearchRestoreSnapshot()
 
-Deletes the OpenSearch Restore Snapshot
+Deletes the restored OpenSearch index created from the specified snapshot.  This deletes only the restored index named with the snapshot name and \"_restored\" suffix. It does not delete the original site index or the snapshot. This operation is not supported for OpenSearch Serverless.
 
 ### Example
 
@@ -695,7 +811,7 @@ No authorization required
 # **deleteOpenSearchSnapshot**
 > DeleteResponse deleteOpenSearchSnapshot()
 
-Deletes the OpenSearch Snapshot
+Deletes a manual snapshot from the specified site\'s S3 snapshot repository.  The supplied snapshot name is resolved to the site\'s stored snapshot name before deletion. This operation is not supported for OpenSearch Serverless.
 
 ### Example
 
@@ -749,7 +865,7 @@ No authorization required
 # **deleteOpenSearchSnapshotRepository**
 > DeleteResponse deleteOpenSearchSnapshotRepository()
 
-Deletes the OpenSearch Snapshot Repository
+Deletes the S3 snapshot repository configured for the specified site\'s OpenSearch index.  This removes the OpenSearch repository registration, not the site\'s index. This operation is not supported for OpenSearch Serverless.
 
 ### Example
 
@@ -848,6 +964,62 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **generateDelegationToken**
+> AddDelegationTokenResponse generateDelegationToken(addDelegationTokenRequest)
+
+Creates a KMS-signed delegation token for a site. This endpoint requires ADMIN permission for the requested siteId. The returned token is sent on later API requests in the x-formkiq-delegation-token header and reduces the caller\'s effective permissions to the requested subset for that site. It cannot grant ADMIN, add permissions the caller does not already have, or add access to other sites. When onBehalfOf is supplied, activity created while using the token is attributed to that username while the signed token still records the ADMIN principal that issued it. The reason is signed into the token for audit and support traceability.
+
+### Example
+
+```typescript
+import {
+    SystemManagementApi,
+    Configuration,
+    AddDelegationTokenRequest
+} from 'formkiq-client-sdk-typescript';
+
+const configuration = new Configuration();
+const apiInstance = new SystemManagementApi(configuration);
+
+let siteId: string; //Site Identifier (default to undefined)
+let addDelegationTokenRequest: AddDelegationTokenRequest; //
+
+const { status, data } = await apiInstance.generateDelegationToken(
+    siteId,
+    addDelegationTokenRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **addDelegationTokenRequest** | **AddDelegationTokenRequest**|  | |
+| **siteId** | [**string**] | Site Identifier | defaults to undefined|
+
+
+### Return type
+
+**AddDelegationTokenResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+|**400** | 400 Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1282,7 +1454,7 @@ No authorization required
 # **getOpenSearchSnapshot**
 > GetOpenSearchSnapshotResponse getOpenSearchSnapshot()
 
-Returns the OpenSearch Snapshot
+Returns details for a snapshot of the specified site\'s OpenSearch index.  For provisioned OpenSearch domains, the supplied snapshot name is resolved to the site\'s stored snapshot name before lookup. For OpenSearch Serverless, the response is read from the automated snapshot repository.
 
 ### Example
 
@@ -1336,7 +1508,7 @@ No authorization required
 # **getOpenSearchSnapshotRepositories**
 > GetOpenSearchSnapshotRepositoryResponse getOpenSearchSnapshotRepositories()
 
-Returns the OpenSearch Snapshot Repositories
+Returns all configured OpenSearch S3 snapshot repositories for the deployment.  This endpoint is available to administrators when the fulltext OpenSearch module is installed and snapshot support is enabled. Snapshot repositories are not supported for OpenSearch Serverless.
 
 ### Example
 
@@ -1380,7 +1552,7 @@ No authorization required
 # **getOpenSearchSnapshotRepository**
 > GetOpenSearchSnapshotRepositoryResponse getOpenSearchSnapshotRepository()
 
-Returns the OpenSearch Snapshot Repository
+Returns the S3 snapshot repository configured for the specified site.  The repository stores manual snapshots for the site\'s OpenSearch index. It is named from the site and application environment and is created automatically when a snapshot is requested. Snapshot repositories are not supported for OpenSearch Serverless.
 
 ### Example
 
@@ -1431,7 +1603,7 @@ No authorization required
 # **getOpenSearchSnapshots**
 > GetOpenSearchSnapshotResponse getOpenSearchSnapshots()
 
-Returns the OpenSearch Snapshots
+Returns snapshots for the specified site\'s OpenSearch index.  For provisioned OpenSearch domains, the response is read from the site\'s S3 snapshot repository. For OpenSearch Serverless, the response is read from the automated snapshot repository.
 
 ### Example
 
@@ -1617,6 +1789,94 @@ const { status, data } = await apiInstance.getSites(
 ### Return type
 
 **GetSitesResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getSystemConfiguration**
+> GetSystemConfigurationResponse getSystemConfiguration()
+
+Returns the system configuration
+
+### Example
+
+```typescript
+import {
+    SystemManagementApi,
+    Configuration
+} from 'formkiq-client-sdk-typescript';
+
+const configuration = new Configuration();
+const apiInstance = new SystemManagementApi(configuration);
+
+const { status, data } = await apiInstance.getSystemConfiguration();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+**GetSystemConfigurationResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getSystemInferenceModels**
+> GetSystemInferenceModelsResponse getSystemInferenceModels()
+
+Returns the system inference models
+
+### Example
+
+```typescript
+import {
+    SystemManagementApi,
+    Configuration
+} from 'formkiq-client-sdk-typescript';
+
+const configuration = new Configuration();
+const apiInstance = new SystemManagementApi(configuration);
+
+const { status, data } = await apiInstance.getSystemInferenceModels();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+**GetSystemInferenceModelsResponse**
 
 ### Authorization
 
@@ -2016,6 +2276,59 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateSystemConfiguration**
+> UpdateResponse updateSystemConfiguration(updateSystemConfigurationRequest)
+
+Update the system configuration
+
+### Example
+
+```typescript
+import {
+    SystemManagementApi,
+    Configuration,
+    UpdateSystemConfigurationRequest
+} from 'formkiq-client-sdk-typescript';
+
+const configuration = new Configuration();
+const apiInstance = new SystemManagementApi(configuration);
+
+let updateSystemConfigurationRequest: UpdateSystemConfigurationRequest; //
+
+const { status, data } = await apiInstance.updateSystemConfiguration(
+    updateSystemConfigurationRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **updateSystemConfigurationRequest** | **UpdateSystemConfigurationRequest**|  | |
+
+
+### Return type
+
+**UpdateResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+|**400** | 400 OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

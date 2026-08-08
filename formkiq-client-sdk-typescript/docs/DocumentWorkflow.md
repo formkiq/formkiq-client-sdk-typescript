@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **name** | **string** | Workflow name | [optional] [default to undefined]
 **description** | **string** | Workflow description | [optional] [default to undefined]
 **currentStepId** | **string** | The current step workflow is on | [optional] [default to undefined]
+**actionCount** | **number** | Number of actions added for the current workflow step | [optional] [default to undefined]
+**completedActionCount** | **number** | Number of completed actions for the current workflow step | [optional] [default to undefined]
 **status** | [**DocumentWorkflowStatus**](DocumentWorkflowStatus.md) |  | [optional] [default to undefined]
 **insertedDate** | **string** | Inserted Timestamp | [optional] [default to undefined]
 
@@ -22,6 +24,8 @@ const instance: DocumentWorkflow = {
     name,
     description,
     currentStepId,
+    actionCount,
+    completedActionCount,
     status,
     insertedDate,
 };

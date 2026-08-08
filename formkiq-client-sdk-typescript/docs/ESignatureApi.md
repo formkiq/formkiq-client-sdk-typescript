@@ -28,11 +28,13 @@ const apiInstance = new ESignatureApi(configuration);
 let documentId: string; //Document Identifier (default to undefined)
 let addDocusignEnvelopesRequest: AddDocusignEnvelopesRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.addDocusignEnvelopes(
     documentId,
     addDocusignEnvelopesRequest,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -43,6 +45,7 @@ const { status, data } = await apiInstance.addDocusignEnvelopes(
 | **addDocusignEnvelopesRequest** | **AddDocusignEnvelopesRequest**|  | |
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
@@ -88,12 +91,14 @@ let documentId: string; //Document Identifier (default to undefined)
 let envelopeId: string; //Docusign Envelope Id (default to undefined)
 let addDocusignRecipientViewRequest: AddDocusignRecipientViewRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.addDocusignRecipientView(
     documentId,
     envelopeId,
     addDocusignRecipientViewRequest,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -105,6 +110,7 @@ const { status, data } = await apiInstance.addDocusignRecipientView(
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **envelopeId** | [**string**] | Docusign Envelope Id | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type

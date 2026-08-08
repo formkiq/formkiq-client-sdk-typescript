@@ -32,11 +32,13 @@ const apiInstance = new DocumentAttributesApi(configuration);
 let documentId: string; //Document Identifier (default to undefined)
 let addDocumentAttributesRequest: AddDocumentAttributesRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.addDocumentAttributes(
     documentId,
     addDocumentAttributesRequest,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -47,6 +49,7 @@ const { status, data } = await apiInstance.addDocumentAttributes(
 | **addDocumentAttributesRequest** | **AddDocumentAttributesRequest**|  | |
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
@@ -89,11 +92,13 @@ const apiInstance = new DocumentAttributesApi(configuration);
 let documentId: string; //Document Identifier (default to undefined)
 let attributeKey: string; //Attribute Key (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.deleteDocumentAttribute(
     documentId,
     attributeKey,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -104,6 +109,7 @@ const { status, data } = await apiInstance.deleteDocumentAttribute(
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **attributeKey** | [**string**] | Attribute Key | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
@@ -147,12 +153,14 @@ let documentId: string; //Document Identifier (default to undefined)
 let attributeKey: string; //Attribute Key (default to undefined)
 let attributeValue: string; //Attribute Value (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.deleteDocumentAttributeAndValue(
     documentId,
     attributeKey,
     attributeValue,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -164,6 +172,7 @@ const { status, data } = await apiInstance.deleteDocumentAttributeAndValue(
 | **attributeKey** | [**string**] | Attribute Key | defaults to undefined|
 | **attributeValue** | [**string**] | Attribute Value | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
@@ -206,11 +215,13 @@ const apiInstance = new DocumentAttributesApi(configuration);
 let documentId: string; //Document Identifier (default to undefined)
 let attributeKey: string; //Attribute Key (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getDocumentAttribute(
     documentId,
     attributeKey,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -221,6 +232,7 @@ const { status, data } = await apiInstance.getDocumentAttribute(
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **attributeKey** | [**string**] | Attribute Key | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
@@ -262,12 +274,14 @@ const apiInstance = new DocumentAttributesApi(configuration);
 
 let documentId: string; //Document Identifier (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 let limit: string; //Limit Results (optional) (default to '10')
 let next: string; //Next page of results token (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getDocumentAttributes(
     documentId,
     siteId,
+    artifactId,
     limit,
     next
 );
@@ -279,6 +293,7 @@ const { status, data } = await apiInstance.getDocumentAttributes(
 |------------- | ------------- | ------------- | -------------|
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 | **limit** | [**string**] | Limit Results | (optional) defaults to '10'|
 | **next** | [**string**] | Next page of results token | (optional) defaults to undefined|
 
@@ -325,12 +340,14 @@ let documentId: string; //Document Identifier (default to undefined)
 let attributeKey: string; //Attribute Key (default to undefined)
 let setDocumentAttributeRequest: SetDocumentAttributeRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.setDocumentAttributeValue(
     documentId,
     attributeKey,
     setDocumentAttributeRequest,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -342,6 +359,7 @@ const { status, data } = await apiInstance.setDocumentAttributeValue(
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **attributeKey** | [**string**] | Attribute Key | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
@@ -385,11 +403,13 @@ const apiInstance = new DocumentAttributesApi(configuration);
 let documentId: string; //Document Identifier (default to undefined)
 let setDocumentAttributesRequest: SetDocumentAttributesRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.setDocumentAttributes(
     documentId,
     setDocumentAttributesRequest,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -400,6 +420,7 @@ const { status, data } = await apiInstance.setDocumentAttributes(
 | **setDocumentAttributesRequest** | **SetDocumentAttributesRequest**|  | |
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type

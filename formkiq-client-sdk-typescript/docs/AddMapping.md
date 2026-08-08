@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **name** | **string** | Name of Mapping | [optional] [default to undefined]
 **description** | **string** | Description of Mapping | [optional] [default to undefined]
 **attributes** | [**Array&lt;MappingAttribute&gt;**](MappingAttribute.md) | List of attributes | [optional] [default to undefined]
+**classifications** | [**Array&lt;MappingClassification&gt;**](MappingClassification.md) | List of classifications | [optional] [default to undefined]
 
 ## Example
 
@@ -18,6 +19,7 @@ const instance: AddMapping = {
     name,
     description,
     attributes,
+    classifications,
 };
 ```
 

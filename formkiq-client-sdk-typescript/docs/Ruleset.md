@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**rulesetId** | **string** | Ruleset identifier | [optional] [default to undefined]
+**rulesetId** | **string** | Ruleset identifier | [default to undefined]
 **description** | **string** | Ruleset description | [optional] [default to undefined]
 **priority** | **number** | Ruleset priority | [optional] [default to undefined]
 **version** | **number** | Ruleset version | [optional] [default to undefined]

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **siteId** | **string** |  | [optional] [default to undefined]
 **insertedDate** | **string** | Inserted Timestamp | [optional] [default to undefined]
 **permissions** | **Array&lt;string&gt;** | List of permissions | [optional] [default to undefined]
+**groups** | **Array&lt;string&gt;** | List of groups to add as custom claims to API Key | [optional] [default to undefined]
 
 ## Example
 
@@ -24,6 +25,7 @@ const instance: ApiKey = {
     siteId,
     insertedDate,
     permissions,
+    groups,
 };
 ```
 

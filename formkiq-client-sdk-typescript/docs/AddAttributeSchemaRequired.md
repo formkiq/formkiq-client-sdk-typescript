@@ -5,6 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**defaultEntityTypeId** | **string** |  | [optional] [default to undefined]
+**defaultEntityId** | **string** |  | [optional] [default to undefined]
 **minNumberOfValues** | **number** | The minimum number of attribute values | [optional] [default to undefined]
 **maxNumberOfValues** | **number** | The maximum number of attribute values | [optional] [default to undefined]
 **attributeKey** | **string** |  | [optional] [default to undefined]
@@ -18,6 +20,8 @@ Name | Type | Description | Notes
 import { AddAttributeSchemaRequired } from 'formkiq-client-sdk-typescript';
 
 const instance: AddAttributeSchemaRequired = {
+    defaultEntityTypeId,
+    defaultEntityId,
     minNumberOfValues,
     maxNumberOfValues,
     attributeKey,

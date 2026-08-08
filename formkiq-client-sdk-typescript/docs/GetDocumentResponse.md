@@ -5,6 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**artifactId** | **string** | Artifact Identifier | [optional] [default to undefined]
+**promotedArtifactId** | **string** | Promoted Artifact Identifier | [optional] [default to undefined]
+**artifactCategory** | **string** | Artifact Category | [optional] [default to undefined]
+**hasArtifacts** | **boolean** | Whether the document has artifact documents | [optional] [default to undefined]
 **siteId** | **string** | Site Identifier | [optional] [default to undefined]
 **path** | **string** | Path or Name of document | [optional] [default to undefined]
 **width** | **string** | Document Content Width property | [optional] [default to undefined]
@@ -29,6 +33,10 @@ Name | Type | Description | Notes
 import { GetDocumentResponse } from 'formkiq-client-sdk-typescript';
 
 const instance: GetDocumentResponse = {
+    artifactId,
+    promotedArtifactId,
+    artifactCategory,
+    hasArtifacts,
     siteId,
     path,
     width,

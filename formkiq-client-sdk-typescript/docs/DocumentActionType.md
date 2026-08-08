@@ -10,6 +10,12 @@ Type of the Document Action
 
 * `Fulltext` (value: `'FULLTEXT'`)
 
+* `Move` (value: `'MOVE'`)
+
+* `Delete` (value: `'DELETE'`)
+
+* `Checksum` (value: `'CHECKSUM'`)
+
 * `Notification` (value: `'NOTIFICATION'`)
 
 * `Ocr` (value: `'OCR'`)
@@ -27,6 +33,8 @@ Type of the Document Action
 * `Eventbridge` (value: `'EVENTBRIDGE'`)
 
 * `Resize` (value: `'RESIZE'`)
+
+* `Llmprompt` (value: `'LLMPROMPT'`)
 
 * `DataClassification` (value: `'DATA_CLASSIFICATION'`)
 

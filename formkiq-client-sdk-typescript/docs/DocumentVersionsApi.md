@@ -27,12 +27,14 @@ const apiInstance = new DocumentVersionsApi(configuration);
 let documentId: string; //Document Identifier (default to undefined)
 let versionKey: string; //Version Key (version key required URL encoding) (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 let shareKey: string; //Share Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.deleteDocumentVersion(
     documentId,
     versionKey,
     siteId,
+    artifactId,
     shareKey
 );
 ```
@@ -44,6 +46,7 @@ const { status, data } = await apiInstance.deleteDocumentVersion(
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **versionKey** | [**string**] | Version Key (version key required URL encoding) | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 | **shareKey** | [**string**] | Share Identifier | (optional) defaults to undefined|
 
 
@@ -86,6 +89,7 @@ const apiInstance = new DocumentVersionsApi(configuration);
 
 let documentId: string; //Document Identifier (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 let limit: string; //Limit Results (optional) (default to '10')
 let shareKey: string; //Share Identifier (optional) (default to undefined)
 let next: string; //Next page of results token (optional) (default to undefined)
@@ -93,6 +97,7 @@ let next: string; //Next page of results token (optional) (default to undefined)
 const { status, data } = await apiInstance.getDocumentVersions(
     documentId,
     siteId,
+    artifactId,
     limit,
     shareKey,
     next
@@ -105,6 +110,7 @@ const { status, data } = await apiInstance.getDocumentVersions(
 |------------- | ------------- | ------------- | -------------|
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 | **limit** | [**string**] | Limit Results | (optional) defaults to '10'|
 | **shareKey** | [**string**] | Share Identifier | (optional) defaults to undefined|
 | **next** | [**string**] | Next page of results token | (optional) defaults to undefined|
@@ -151,11 +157,13 @@ const apiInstance = new DocumentVersionsApi(configuration);
 let documentId: string; //Document Identifier (default to undefined)
 let setDocumentVersionRequest: SetDocumentVersionRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.setDocumentVersion(
     documentId,
     setDocumentVersionRequest,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -166,6 +174,7 @@ const { status, data } = await apiInstance.setDocumentVersion(
 | **setDocumentVersionRequest** | **SetDocumentVersionRequest**|  | |
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type

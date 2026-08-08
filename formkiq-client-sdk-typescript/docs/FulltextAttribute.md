@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**insertedDate** | **string** | Inserted Timestamp | [optional] [default to undefined]
 **stringValues** | **Array&lt;string&gt;** | Attribute with string values | [optional] [default to undefined]
 **numberValues** | **Array&lt;number&gt;** | Attribute with number values | [optional] [default to undefined]
 **booleanValue** | **boolean** | Attribute with boolean value | [optional] [default to undefined]
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 import { FulltextAttribute } from 'formkiq-client-sdk-typescript';
 
 const instance: FulltextAttribute = {
+    insertedDate,
     stringValues,
     numberValues,
     booleanValue,

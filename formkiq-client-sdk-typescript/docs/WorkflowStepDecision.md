@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**WorkflowStepDecisionType**](WorkflowStepDecisionType.md) |  | [optional] [default to undefined]
-**nextStepId** | **string** | Workflow Step to move to | [optional] [default to undefined]
+**conditions** | [**Array&lt;WorkflowStepCondition&gt;**](WorkflowStepCondition.md) | Workflow Step Conditions | [optional] [default to undefined]
+**defaultTransition** | [**WorkflowStepTransition**](WorkflowStepTransition.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 import { WorkflowStepDecision } from 'formkiq-client-sdk-typescript';
 
 const instance: WorkflowStepDecision = {
-    type,
-    nextStepId,
+    conditions,
+    defaultTransition,
 };
 ```
 

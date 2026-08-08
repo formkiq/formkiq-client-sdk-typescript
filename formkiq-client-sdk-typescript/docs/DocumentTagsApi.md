@@ -34,11 +34,13 @@ const apiInstance = new DocumentTagsApi(configuration);
 let documentId: string; //Document Identifier (default to undefined)
 let addDocumentTagsRequest: AddDocumentTagsRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.addDocumentTags(
     documentId,
     addDocumentTagsRequest,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -49,6 +51,7 @@ const { status, data } = await apiInstance.addDocumentTags(
 | **addDocumentTagsRequest** | **AddDocumentTagsRequest**|  | |
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
@@ -91,11 +94,13 @@ const apiInstance = new DocumentTagsApi(configuration);
 let documentId: string; //Document Identifier (default to undefined)
 let tagKey: string; //Tag Key (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.deleteDocumentTag(
     documentId,
     tagKey,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -106,6 +111,7 @@ const { status, data } = await apiInstance.deleteDocumentTag(
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **tagKey** | [**string**] | Tag Key | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
@@ -149,6 +155,7 @@ let documentId: string; //Document Identifier (default to undefined)
 let tagKey: string; //Tag Key (default to undefined)
 let tagValue: string; //Tag Key Value (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 let shareKey: string; //Share Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.deleteDocumentTagAndValue(
@@ -156,6 +163,7 @@ const { status, data } = await apiInstance.deleteDocumentTagAndValue(
     tagKey,
     tagValue,
     siteId,
+    artifactId,
     shareKey
 );
 ```
@@ -168,6 +176,7 @@ const { status, data } = await apiInstance.deleteDocumentTagAndValue(
 | **tagKey** | [**string**] | Tag Key | defaults to undefined|
 | **tagValue** | [**string**] | Tag Key Value | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 | **shareKey** | [**string**] | Share Identifier | (optional) defaults to undefined|
 
 
@@ -211,12 +220,14 @@ const apiInstance = new DocumentTagsApi(configuration);
 let documentId: string; //Document Identifier (default to undefined)
 let tagKey: string; //Tag Key (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 let shareKey: string; //Share Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.getDocumentTag(
     documentId,
     tagKey,
     siteId,
+    artifactId,
     shareKey
 );
 ```
@@ -228,6 +239,7 @@ const { status, data } = await apiInstance.getDocumentTag(
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **tagKey** | [**string**] | Tag Key | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 | **shareKey** | [**string**] | Share Identifier | (optional) defaults to undefined|
 
 
@@ -270,6 +282,7 @@ const apiInstance = new DocumentTagsApi(configuration);
 
 let documentId: string; //Document Identifier (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 let limit: string; //Limit Results (optional) (default to '10')
 let shareKey: string; //Share Identifier (optional) (default to undefined)
 let next: string; //Next page of results token (optional) (default to undefined)
@@ -278,6 +291,7 @@ let previous: string; //Previous page of results token (optional) (default to un
 const { status, data } = await apiInstance.getDocumentTags(
     documentId,
     siteId,
+    artifactId,
     limit,
     shareKey,
     next,
@@ -291,6 +305,7 @@ const { status, data } = await apiInstance.getDocumentTags(
 |------------- | ------------- | ------------- | -------------|
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 | **limit** | [**string**] | Limit Results | (optional) defaults to '10'|
 | **shareKey** | [**string**] | Share Identifier | (optional) defaults to undefined|
 | **next** | [**string**] | Next page of results token | (optional) defaults to undefined|
@@ -319,7 +334,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **setDocumentTag**
-> setDocumentTag(setDocumentTagKeyRequest)
+> UpdateResponse setDocumentTag(setDocumentTagKeyRequest)
 
 Update any and all values of a document tag, by using its key; you can supply one tag value or a list of tag values in the request body
 
@@ -339,12 +354,14 @@ let documentId: string; //Document Identifier (default to undefined)
 let tagKey: string; //Tag Key (default to undefined)
 let setDocumentTagKeyRequest: SetDocumentTagKeyRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.setDocumentTag(
     documentId,
     tagKey,
     setDocumentTagKeyRequest,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -356,11 +373,12 @@ const { status, data } = await apiInstance.setDocumentTag(
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **tagKey** | [**string**] | Tag Key | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
 
-void (empty response body)
+**UpdateResponse**
 
 ### Authorization
 
@@ -369,7 +387,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -380,7 +398,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **setDocumentTags**
-> setDocumentTags(addDocumentTagsRequest)
+> SetResponse setDocumentTags(addDocumentTagsRequest)
 
 Set multiple tags to a document; this endpoint also accepts a different body parameter for setting a single tag
 
@@ -399,11 +417,13 @@ const apiInstance = new DocumentTagsApi(configuration);
 let documentId: string; //Document Identifier (default to undefined)
 let addDocumentTagsRequest: AddDocumentTagsRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.setDocumentTags(
     documentId,
     addDocumentTagsRequest,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -414,11 +434,12 @@ const { status, data } = await apiInstance.setDocumentTags(
 | **addDocumentTagsRequest** | **AddDocumentTagsRequest**|  | |
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
 
-void (empty response body)
+**SetResponse**
 
 ### Authorization
 
@@ -427,7 +448,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
@@ -438,7 +459,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateDocumentTags**
-> updateDocumentTags(addDocumentTagsRequest)
+> UpdateResponse updateDocumentTags(addDocumentTagsRequest)
 
 Updates multiple tags to a document; this endpoint also accepts a different body parameter for updating a single tag
 
@@ -457,11 +478,13 @@ const apiInstance = new DocumentTagsApi(configuration);
 let documentId: string; //Document Identifier (default to undefined)
 let addDocumentTagsRequest: AddDocumentTagsRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.updateDocumentTags(
     documentId,
     addDocumentTagsRequest,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -472,11 +495,12 @@ const { status, data } = await apiInstance.updateDocumentTags(
 | **addDocumentTagsRequest** | **AddDocumentTagsRequest**|  | |
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
 
-void (empty response body)
+**UpdateResponse**
 
 ### Authorization
 
@@ -485,7 +509,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details

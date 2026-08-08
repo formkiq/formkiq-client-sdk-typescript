@@ -28,11 +28,13 @@ const apiInstance = new DocumentOCRApi(configuration);
 
 let documentId: string; //Document Identifier (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 let addDocumentOcrRequest: AddDocumentOcrRequest; // (optional)
 
 const { status, data } = await apiInstance.addDocumentOcr(
     documentId,
     siteId,
+    artifactId,
     addDocumentOcrRequest
 );
 ```
@@ -44,6 +46,7 @@ const { status, data } = await apiInstance.addDocumentOcr(
 | **addDocumentOcrRequest** | **AddDocumentOcrRequest**|  | |
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
@@ -85,10 +88,12 @@ const apiInstance = new DocumentOCRApi(configuration);
 
 let documentId: string; //Document Identifier (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 
 const { status, data } = await apiInstance.deleteDocumentOcr(
     documentId,
-    siteId
+    siteId,
+    artifactId
 );
 ```
 
@@ -98,6 +103,7 @@ const { status, data } = await apiInstance.deleteDocumentOcr(
 |------------- | ------------- | ------------- | -------------|
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
@@ -139,6 +145,7 @@ const apiInstance = new DocumentOCRApi(configuration);
 
 let documentId: string; //Document Identifier (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 let outputType: 'TEXT' | 'KEY_VALUE' | 'CONTENT_URL' | 'TABLES'; //Output Format Type (optional) (default to undefined)
 let contentUrl: string; //Whether to return a \"contentUrl\", set value to \'true\' (deprecated) (optional) (default to undefined)
 let text: string; //Returns raw \'text\' of OCR content. e.g. AWS Textract returns JSON, setting parameter to \'true\' converts JSON to Text (deprecated) (optional) (default to undefined)
@@ -147,6 +154,7 @@ let shareKey: string; //Share Identifier (optional) (default to undefined)
 const { status, data } = await apiInstance.getDocumentOcr(
     documentId,
     siteId,
+    artifactId,
     outputType,
     contentUrl,
     text,
@@ -160,6 +168,7 @@ const { status, data } = await apiInstance.getDocumentOcr(
 |------------- | ------------- | ------------- | -------------|
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 | **outputType** | [**&#39;TEXT&#39; | &#39;KEY_VALUE&#39; | &#39;CONTENT_URL&#39; | &#39;TABLES&#39;**]**Array<&#39;TEXT&#39; &#124; &#39;KEY_VALUE&#39; &#124; &#39;CONTENT_URL&#39; &#124; &#39;TABLES&#39;>** | Output Format Type | (optional) defaults to undefined|
 | **contentUrl** | [**string**] | Whether to return a \&quot;contentUrl\&quot;, set value to \&#39;true\&#39; (deprecated) | (optional) defaults to undefined|
 | **text** | [**string**] | Returns raw \&#39;text\&#39; of OCR content. e.g. AWS Textract returns JSON, setting parameter to \&#39;true\&#39; converts JSON to Text (deprecated) | (optional) defaults to undefined|
@@ -206,11 +215,13 @@ const apiInstance = new DocumentOCRApi(configuration);
 
 let documentId: string; //Document Identifier (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 let setDocumentOcrRequest: SetDocumentOcrRequest; // (optional)
 
 const { status, data } = await apiInstance.setDocumentOcr(
     documentId,
     siteId,
+    artifactId,
     setDocumentOcrRequest
 );
 ```
@@ -222,6 +233,7 @@ const { status, data } = await apiInstance.setDocumentOcr(
 | **setDocumentOcrRequest** | **SetDocumentOcrRequest**|  | |
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 
 
 ### Return type
