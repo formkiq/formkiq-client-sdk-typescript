@@ -7,6 +7,7 @@ All URIs are relative to *http://localhost*
 |[**addApiKey**](#addapikey) | **POST** /sites/{siteId}/apiKeys | Add API Key|
 |[**addLocale**](#addlocale) | **POST** /sites/{siteId}/locales | Add Locale|
 |[**addLocaleResourceItem**](#addlocaleresourceitem) | **POST** /sites/{siteId}/locales/{locale}/resourceItems | Add Locale Resource Item|
+|[**addNotificationTest**](#addnotificationtest) | **POST** /sites/{siteId}/configuration/notification/test | Send a test notification|
 |[**addOpenSearchRestoreSnapshot**](#addopensearchrestoresnapshot) | **POST** /sites/{siteId}/opensearch/snapshots/{snapshotName}/restore | Restore site OpenSearch snapshot|
 |[**addOpenSearchSnapshot**](#addopensearchsnapshot) | **POST** /sites/{siteId}/opensearch/snapshots/{snapshotName} | Create site OpenSearch snapshot|
 |[**addSite**](#addsite) | **POST** /sites | Add Site|
@@ -28,6 +29,8 @@ All URIs are relative to *http://localhost*
 |[**getLocaleResourceItem**](#getlocaleresourceitem) | **GET** /sites/{siteId}/locales/{locale}/resourceItems/{itemKey} | Get Resource Item by Locale|
 |[**getLocaleResourceItems**](#getlocaleresourceitems) | **GET** /sites/{siteId}/locales/{locale}/resourceItems | Get Resource Items by Locale|
 |[**getLocales**](#getlocales) | **GET** /sites/{siteId}/locales | Get Locales|
+|[**getNumberingSequence**](#getnumberingsequence) | **GET** /sites/{siteId}/numberingSequences/{attributeKey} | Get numbering sequence|
+|[**getNumberingSequences**](#getnumberingsequences) | **GET** /sites/{siteId}/numberingSequences | Get numbering sequences|
 |[**getOpenSearchIndex**](#getopensearchindex) | **GET** /sites/{siteId}/opensearch/index | Get site(s) OpenSearch index settings|
 |[**getOpenSearchIndices**](#getopensearchindices) | **GET** /sites/{siteId}/opensearch/indices | Get site(s) OpenSearch indices|
 |[**getOpenSearchSnapshot**](#getopensearchsnapshot) | **GET** /sites/{siteId}/opensearch/snapshots/{snapshotName} | Get site OpenSearch snapshot|
@@ -41,6 +44,7 @@ All URIs are relative to *http://localhost*
 |[**getSystemInferenceModels**](#getsysteminferencemodels) | **GET** /system/inferenceModels | Get system inference models|
 |[**getVersion**](#getversion) | **GET** /version | Get FormKiQ version|
 |[**setLocaleResourceItem**](#setlocaleresourceitem) | **PUT** /sites/{siteId}/locales/{locale}/resourceItems/{itemKey} | Set Locale Resource Item|
+|[**setNumberingSequence**](#setnumberingsequence) | **PUT** /sites/{siteId}/numberingSequences/{attributeKey} | Set numbering sequence|
 |[**setOpenSearchIndex**](#setopensearchindex) | **PUT** /sites/{siteId}/opensearch/index | Set site(s) OpenSearch index settings|
 |[**setOpenSearchIndices**](#setopensearchindices) | **PUT** /sites/{siteId}/opensearch/indices | Set site(s) OpenSearch index to use for a SiteId|
 |[**setSiteGroupPermissions**](#setsitegrouppermissions) | **PUT** /sites/{siteId}/groups/{groupName}/permissions | Set Site\&#39;s Group Permissions|
@@ -213,6 +217,62 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | 201 CREATED |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **addNotificationTest**
+> AddNotificationTestResponse addNotificationTest(addNotificationTestRequest)
+
+Queues a test email using the site\'s saved notification configuration
+
+### Example
+
+```typescript
+import {
+    SystemManagementApi,
+    Configuration,
+    AddNotificationTestRequest
+} from 'formkiq-client-sdk-typescript';
+
+const configuration = new Configuration();
+const apiInstance = new SystemManagementApi(configuration);
+
+let siteId: string; //Site Identifier (default to undefined)
+let addNotificationTestRequest: AddNotificationTestRequest; //
+
+const { status, data } = await apiInstance.addNotificationTest(
+    siteId,
+    addNotificationTestRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **addNotificationTestRequest** | **AddNotificationTestRequest**|  | |
+| **siteId** | [**string**] | Site Identifier | defaults to undefined|
+
+
+### Return type
+
+**AddNotificationTestResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**202** | Test notification queued |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+|**400** | Invalid request or notification configuration |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1349,6 +1409,118 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getNumberingSequence**
+> GetNumberingSequenceResponse getNumberingSequence()
+
+Returns the numbering sequence configured for an attribute key
+
+### Example
+
+```typescript
+import {
+    SystemManagementApi,
+    Configuration
+} from 'formkiq-client-sdk-typescript';
+
+const configuration = new Configuration();
+const apiInstance = new SystemManagementApi(configuration);
+
+let siteId: string; //Site Identifier (default to undefined)
+let attributeKey: string; //Attribute Key (default to undefined)
+
+const { status, data } = await apiInstance.getNumberingSequence(
+    siteId,
+    attributeKey
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **siteId** | [**string**] | Site Identifier | defaults to undefined|
+| **attributeKey** | [**string**] | Attribute Key | defaults to undefined|
+
+
+### Return type
+
+**GetNumberingSequenceResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+|**404** | Numbering sequence not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getNumberingSequences**
+> GetNumberingSequencesResponse getNumberingSequences()
+
+Returns the numbering sequences configured for a site
+
+### Example
+
+```typescript
+import {
+    SystemManagementApi,
+    Configuration
+} from 'formkiq-client-sdk-typescript';
+
+const configuration = new Configuration();
+const apiInstance = new SystemManagementApi(configuration);
+
+let siteId: string; //Site Identifier (default to undefined)
+let limit: string; //Limit Results (optional) (default to '10')
+let next: string; //Next page of results token (optional) (default to undefined)
+
+const { status, data } = await apiInstance.getNumberingSequences(
+    siteId,
+    limit,
+    next
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **siteId** | [**string**] | Site Identifier | defaults to undefined|
+| **limit** | [**string**] | Limit Results | (optional) defaults to '10'|
+| **next** | [**string**] | Next page of results token | (optional) defaults to undefined|
+
+
+### Return type
+
+**GetNumberingSequencesResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **getOpenSearchIndex**
 > GetOpenSearchIndexResponse getOpenSearchIndex()
 
@@ -1997,6 +2169,65 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **setNumberingSequence**
+> GetNumberingSequenceResponse setNumberingSequence(setNumberingSequenceRequest)
+
+Creates or updates the numbering sequence for an attribute key
+
+### Example
+
+```typescript
+import {
+    SystemManagementApi,
+    Configuration,
+    SetNumberingSequenceRequest
+} from 'formkiq-client-sdk-typescript';
+
+const configuration = new Configuration();
+const apiInstance = new SystemManagementApi(configuration);
+
+let siteId: string; //Site Identifier (default to undefined)
+let attributeKey: string; //Attribute Key (default to undefined)
+let setNumberingSequenceRequest: SetNumberingSequenceRequest; //
+
+const { status, data } = await apiInstance.setNumberingSequence(
+    siteId,
+    attributeKey,
+    setNumberingSequenceRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **setNumberingSequenceRequest** | **SetNumberingSequenceRequest**|  | |
+| **siteId** | [**string**] | Site Identifier | defaults to undefined|
+| **attributeKey** | [**string**] | Attribute Key | defaults to undefined|
+
+
+### Return type
+
+**GetNumberingSequenceResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+|**400** | Invalid numbering sequence configuration |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

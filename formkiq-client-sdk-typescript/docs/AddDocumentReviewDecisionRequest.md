@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **decision** | [**AddDocumentReviewDecision**](AddDocumentReviewDecision.md) |  | [default to undefined]
+**review** | [**AddDocumentReview**](AddDocumentReview.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -14,6 +15,7 @@ import { AddDocumentReviewDecisionRequest } from 'formkiq-client-sdk-typescript'
 
 const instance: AddDocumentReviewDecisionRequest = {
     decision,
+    review,
 };
 ```
 

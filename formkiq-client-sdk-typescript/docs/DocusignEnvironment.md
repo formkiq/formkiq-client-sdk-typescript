@@ -1,6 +1,6 @@
 # DocusignEnvironment
 
-Docusign Environment
+Docusign environment. When omitted from an E-Signature request, defaults to docusignEnvironment in the site configuration.
 
 ## Enum
 

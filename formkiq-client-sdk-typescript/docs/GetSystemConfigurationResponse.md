@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**branding** | [**BrandingConfig**](BrandingConfig.md) |  | [optional] [default to undefined]
 **webui** | [**SystemConfigurationWebUi**](SystemConfigurationWebUi.md) |  | [optional] [default to undefined]
 
 ## Example
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 import { GetSystemConfigurationResponse } from 'formkiq-client-sdk-typescript';
 
 const instance: GetSystemConfigurationResponse = {
+    branding,
     webui,
 };
 ```

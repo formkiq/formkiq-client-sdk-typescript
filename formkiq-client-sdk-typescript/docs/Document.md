@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **width** | **string** | Document Content Width property | [optional] [default to undefined]
 **height** | **string** | Document Content Height property | [optional] [default to undefined]
 **deepLinkPath** | **string** | Path or Name of deep link | [optional] [default to undefined]
+**resourceType** | [**DocumentResourceType**](DocumentResourceType.md) |  | [optional] [default to undefined]
 **insertedDate** | **string** | Inserted Timestamp | [optional] [default to undefined]
 **lastModifiedDate** | **string** | Last Modified Timestamp | [optional] [default to undefined]
 **deletedDate** | **string** | Soft Deleted Timestamp | [optional] [default to undefined]
@@ -40,6 +41,7 @@ const instance: Document = {
     width,
     height,
     deepLinkPath,
+    resourceType,
     insertedDate,
     lastModifiedDate,
     deletedDate,

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **width** | **string** | Document Content Width property | [optional] [default to undefined]
 **height** | **string** | Document Content Height property | [optional] [default to undefined]
 **deepLinkPath** | **string** | Path or Name of deep link | [optional] [default to undefined]
+**resourceType** | [**DocumentResourceType**](DocumentResourceType.md) |  | [optional] [default to undefined]
 **contentType** | **string** | Document media type | [optional] [default to undefined]
 **isBase64** | **boolean** | Is the content Base64-encoded? | [optional] [default to undefined]
 **content** | **string** | Document content | [default to undefined]
@@ -38,6 +39,7 @@ const instance: AddDocumentRequest = {
     width,
     height,
     deepLinkPath,
+    resourceType,
     contentType,
     isBase64,
     content,

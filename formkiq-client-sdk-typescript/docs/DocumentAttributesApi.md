@@ -7,6 +7,7 @@ All URIs are relative to *http://localhost*
 |[**addDocumentAttributes**](#adddocumentattributes) | **POST** /documents/{documentId}/attributes | Add attribute to document|
 |[**deleteDocumentAttribute**](#deletedocumentattribute) | **DELETE** /documents/{documentId}/attributes/{attributeKey} | Delete document attribute|
 |[**deleteDocumentAttributeAndValue**](#deletedocumentattributeandvalue) | **DELETE** /documents/{documentId}/attributes/{attributeKey}/{attributeValue} | Delete document\&#39;s attribute value|
+|[**generateDocumentAttributeValue**](#generatedocumentattributevalue) | **POST** /documents/{documentId}/attributes/{attributeKey}/generate | Generate document attribute value|
 |[**getDocumentAttribute**](#getdocumentattribute) | **GET** /documents/{documentId}/attributes/{attributeKey} | Get document attribute by key|
 |[**getDocumentAttributes**](#getdocumentattributes) | **GET** /documents/{documentId}/attributes | Get document\&#39;s attributes|
 |[**setDocumentAttributeValue**](#setdocumentattributevalue) | **PUT** /documents/{documentId}/attributes/{attributeKey} | Set document\&#39;s attributes value|
@@ -193,6 +194,65 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **generateDocumentAttributeValue**
+> GenerateDocumentAttributeValueResponse generateDocumentAttributeValue()
+
+Allocates the next value from the numbering sequence configured for the attribute key and stores it on the document. If the document already has a value for the attribute key, the existing value is returned.
+
+### Example
+
+```typescript
+import {
+    DocumentAttributesApi,
+    Configuration
+} from 'formkiq-client-sdk-typescript';
+
+const configuration = new Configuration();
+const apiInstance = new DocumentAttributesApi(configuration);
+
+let documentId: string; //Document Identifier (default to undefined)
+let attributeKey: string; //Attribute Key (default to undefined)
+let siteId: string; //Site Identifier (optional) (default to undefined)
+
+const { status, data } = await apiInstance.generateDocumentAttributeValue(
+    documentId,
+    attributeKey,
+    siteId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **documentId** | [**string**] | Document Identifier | defaults to undefined|
+| **attributeKey** | [**string**] | Attribute Key | defaults to undefined|
+| **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+
+
+### Return type
+
+**GenerateDocumentAttributeValueResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+|**400** | Attribute key is not eligible for generated values |  -  |
+|**404** | Document or numbering sequence not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

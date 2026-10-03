@@ -5,10 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**environment** | [**DocusignEnvironment**](DocusignEnvironment.md) |  | [optional] [default to undefined]
 **userId** | **string** | Docusign UserId | [optional] [default to undefined]
 **integrationKey** | **string** | Docusign Integration Key or ClientId | [optional] [default to undefined]
 **rsaPrivateKey** | **string** | Docusign Rsa Private Key | [optional] [default to undefined]
-**hmacSignature** | **string** | Enabled security with Docusign Connect using HMAC keys. When enabled these keys are known only by Docusign and your app, and will be used to sign all Connect messages sent from your Docusign account to your application. | [optional] [default to undefined]
+**hmacSignature** | **string** | Optional HMAC secret used to validate Docusign Connect event notifications. When configured, callbacks must include a matching Docusign HMAC signature. When omitted or empty, callbacks are processed without HMAC validation, including when connectUrl is configured. | [optional] [default to undefined]
+**connectUrl** | **string** | Public HTTPS URL that receives Docusign Connect event notifications. May be configured with or without hmacSignature. | [optional] [default to undefined]
 
 ## Example
 
@@ -16,10 +18,12 @@ Name | Type | Description | Notes
 import { DocusignConfig } from 'formkiq-client-sdk-typescript';
 
 const instance: DocusignConfig = {
+    environment,
     userId,
     integrationKey,
     rsaPrivateKey,
     hmacSignature,
+    connectUrl,
 };
 ```
 

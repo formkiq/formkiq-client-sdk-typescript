@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **stringValues** | **Array&lt;string&gt;** | Attribute with string values | [optional] [default to undefined]
 **numberValues** | **Array&lt;number&gt;** | Attribute with number values | [optional] [default to undefined]
 **booleanValue** | **boolean** | Attribute with boolean value | [optional] [default to undefined]
+**dateValues** | **Array&lt;string&gt;** | Attribute with date values | [optional] [default to undefined]
 **valueType** | [**AttributeValueType**](AttributeValueType.md) |  | [optional] [default to undefined]
 
 ## Example
@@ -21,6 +22,7 @@ const instance: FulltextAttribute = {
     stringValues,
     numberValues,
     booleanValue,
+    dateValues,
     valueType,
 };
 ```
