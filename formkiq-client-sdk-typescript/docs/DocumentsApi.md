@@ -840,7 +840,7 @@ let artifactId: string; //Artifact Document Identifier (optional) (default to un
 let versionKey: string; //Version Key (version key required URL encoding) (optional) (default to undefined)
 let duration: number; //Indicates the number of hours request is valid for (optional) (default to undefined)
 let shareKey: string; //Share Identifier (optional) (default to undefined)
-let inline: boolean; //Set the Content-Disposition to inline (optional) (default to false)
+let inline: boolean; //Request inline delivery. S3-backed SVG documents identified by content type or filename are always served as attachments. (optional) (default to false)
 let bypassWatermark: boolean; //Allow the by pass of watermark (only allowed by GOVERN / ADMIN permissions) (optional) (default to false)
 let format: 'short'; //Return a shortlink URL when set to `short`; available as an Add-On Module (optional) (default to undefined)
 
@@ -867,7 +867,7 @@ const { status, data } = await apiInstance.getDocumentUrl(
 | **versionKey** | [**string**] | Version Key (version key required URL encoding) | (optional) defaults to undefined|
 | **duration** | [**number**] | Indicates the number of hours request is valid for | (optional) defaults to undefined|
 | **shareKey** | [**string**] | Share Identifier | (optional) defaults to undefined|
-| **inline** | [**boolean**] | Set the Content-Disposition to inline | (optional) defaults to false|
+| **inline** | [**boolean**] | Request inline delivery. S3-backed SVG documents identified by content type or filename are always served as attachments. | (optional) defaults to false|
 | **bypassWatermark** | [**boolean**] | Allow the by pass of watermark (only allowed by GOVERN / ADMIN permissions) | (optional) defaults to false|
 | **format** | [**&#39;short&#39;**]**Array<&#39;short&#39;>** | Return a shortlink URL when set to &#x60;short&#x60;; available as an Add-On Module | (optional) defaults to undefined|
 

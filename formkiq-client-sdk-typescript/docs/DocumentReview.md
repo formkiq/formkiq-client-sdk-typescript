@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **reviewId** | **string** | Review Identifier | [optional] [default to undefined]
 **reviewCategory** | **string** | Review category | [optional] [default to undefined]
 **reviewStatus** | [**DocumentReviewStatus**](DocumentReviewStatus.md) |  | [optional] [default to undefined]
+**approvalGroups** | **Array&lt;string&gt;** | Optional approval groups used for additional credential verification when submitting a decision to POST /documents/{documentId}/reviews/{reviewId}/decisions. The caller must belong to at least one of the listed groups, in addition to satisfying the existing authorization requirements. | [optional] [default to undefined]
 **requiredDecisions** | **number** | Number of decisions required to complete the review | [optional] [default to undefined]
 **userId** | **string** | User who added review | [optional] [default to undefined]
 **comments** | **string** | Review comments | [optional] [default to undefined]
@@ -27,6 +28,7 @@ const instance: DocumentReview = {
     reviewId,
     reviewCategory,
     reviewStatus,
+    approvalGroups,
     requiredDecisions,
     userId,
     comments,

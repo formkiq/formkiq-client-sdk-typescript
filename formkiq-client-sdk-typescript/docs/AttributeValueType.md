@@ -6,6 +6,8 @@ Attribute Value Type
 
 * `Boolean` (value: `'BOOLEAN'`)
 
+* `Date` (value: `'DATE'`)
+
 * `KeyOnly` (value: `'KEY_ONLY'`)
 
 * `Number` (value: `'NUMBER'`)

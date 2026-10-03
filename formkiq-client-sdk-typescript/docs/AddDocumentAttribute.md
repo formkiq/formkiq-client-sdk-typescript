@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **numberValue** | **number** | Attribute with number value | [optional] [default to undefined]
 **numberValues** | **Array&lt;number&gt;** | Attribute with number values | [optional] [default to undefined]
 **booleanValue** | **boolean** | Attribute with boolean value | [optional] [default to undefined]
+**dateValue** | **string** | Attribute with date value | [optional] [default to undefined]
+**dateValues** | **Array&lt;string&gt;** | Attribute with date values | [optional] [default to undefined]
 **classificationId** | **string** | Classification Identifier | [default to undefined]
 **documentId** | **string** | Relationship To Document Identifier | [default to undefined]
 **relationship** | [**DocumentRelationshipType**](DocumentRelationshipType.md) |  | [default to undefined]
@@ -32,6 +34,8 @@ const instance: AddDocumentAttribute = {
     numberValue,
     numberValues,
     booleanValue,
+    dateValue,
+    dateValues,
     classificationId,
     documentId,
     relationship,

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **stringValue** | **string** | Search for string value | [optional] [default to undefined]
 **numberValue** | **number** | Search for number value | [optional] [default to undefined]
 **booleanValue** | **boolean** | Search for boolean value | [optional] [default to undefined]
+**dateValue** | **string** | Search for date value | [optional] [default to undefined]
 
 ## Example
 
@@ -18,6 +19,7 @@ const instance: DocumentFulltextAttributeEq = {
     stringValue,
     numberValue,
     booleanValue,
+    dateValue,
 };
 ```
 

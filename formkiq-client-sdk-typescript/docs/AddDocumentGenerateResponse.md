@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **documentId** | **string** | Generated document identifier | [optional] [default to undefined]
+**artifactId** | **string** | Artifact Identifier | [optional] [default to undefined]
 
 ## Example
 
@@ -14,6 +15,7 @@ import { AddDocumentGenerateResponse } from 'formkiq-client-sdk-typescript';
 
 const instance: AddDocumentGenerateResponse = {
     documentId,
+    artifactId,
 };
 ```
 

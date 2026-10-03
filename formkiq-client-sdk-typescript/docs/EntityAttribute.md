@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **numberValue** | **number** | Attribute with number value | [optional] [default to undefined]
 **numberValues** | **Array&lt;number&gt;** | Attribute with number values | [optional] [default to undefined]
 **booleanValue** | **boolean** | Attribute with boolean value | [optional] [default to undefined]
+**dateValue** | **string** | Attribute with date value | [optional] [default to undefined]
+**dateValues** | **Array&lt;string&gt;** | Attribute with date values | [optional] [default to undefined]
 **valueType** | [**AttributeValueType**](AttributeValueType.md) |  | [optional] [default to undefined]
 
 ## Example
@@ -25,6 +27,8 @@ const instance: EntityAttribute = {
     numberValue,
     numberValues,
     booleanValue,
+    dateValue,
+    dateValues,
     valueType,
 };
 ```

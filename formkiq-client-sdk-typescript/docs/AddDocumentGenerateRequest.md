@@ -10,6 +10,9 @@ Name | Type | Description | Notes
 **datasources** | [**Array&lt;DocumentGenerateDataSource&gt;**](DocumentGenerateDataSource.md) | List of data sources | [optional] [default to undefined]
 **outputType** | [**DocumentGenerateOutputType**](DocumentGenerateOutputType.md) |  | [optional] [default to undefined]
 **saveAsDocumentId** | **string** | Save the generated document with a specific documentId | [optional] [default to undefined]
+**saveAsArtifact** | **boolean** | Create the output as a new artifact of saveAsDocumentId | [optional] [default to false]
+**saveAsArtifactId** | **string** | Save the output as a new version of an existing artifact | [optional] [default to undefined]
+**artifactCategory** | **string** | Optional caller-defined category for artifact output | [optional] [default to undefined]
 **path** | **string** | The path of the generated document | [optional] [default to undefined]
 
 ## Example
@@ -23,6 +26,9 @@ const instance: AddDocumentGenerateRequest = {
     datasources,
     outputType,
     saveAsDocumentId,
+    saveAsArtifact,
+    saveAsArtifactId,
+    artifactCategory,
     path,
 };
 ```

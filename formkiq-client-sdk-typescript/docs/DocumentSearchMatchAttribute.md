@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **stringValue** | **string** | Attribute with string value | [optional] [default to undefined]
 **numberValue** | **number** | Attribute with number value | [optional] [default to undefined]
 **booleanValue** | **boolean** | Attribute with boolean value | [optional] [default to undefined]
+**dateValue** | **string** | Attribute with date value | [optional] [default to undefined]
 
 ## Example
 
@@ -20,6 +21,7 @@ const instance: DocumentSearchMatchAttribute = {
     stringValue,
     numberValue,
     booleanValue,
+    dateValue,
 };
 ```
 
