@@ -1,5 +1,6 @@
 # DocumentSearchFilename
 
+Filename search criteria. Cannot be combined with `documentIds`.
 
 ## Properties
 

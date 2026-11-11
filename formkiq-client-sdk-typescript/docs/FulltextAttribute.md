@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **numberValues** | **Array&lt;number&gt;** | Attribute with number values | [optional] [default to undefined]
 **booleanValue** | **boolean** | Attribute with boolean value | [optional] [default to undefined]
 **dateValues** | **Array&lt;string&gt;** | Attribute with date values | [optional] [default to undefined]
+**jsonValue** | **{ [key: string]: any; }** | One JSON object stored as a single attribute value. Arrays, scalars, and null are not accepted at the top level. Nested values may include objects, arrays, strings, numbers, booleans, and null. Empty objects and nested empty arrays are accepted. Object property order and original number formatting are not preserved.  The complete stored DynamoDB item, including metadata and attribute names, must fit within 400 KB. Stored document nesting must not exceed 32 levels, including the wrapper. Numbers must fit within DynamoDB\&#39;s supported range and 38 digits of precision. | [optional] [default to undefined]
 **valueType** | [**AttributeValueType**](AttributeValueType.md) |  | [optional] [default to undefined]
 
 ## Example
@@ -23,6 +24,7 @@ const instance: FulltextAttribute = {
     numberValues,
     booleanValue,
     dateValues,
+    jsonValue,
     valueType,
 };
 ```

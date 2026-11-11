@@ -1,5 +1,6 @@
 # ApiKey
 
+An API key and its permission configuration. roleType is optional for legacy records. A missing roleType means permissions contains explicit CUSTOM grants. A predefined roleType determines the effective role grants, which can be discovered in the catalog.
 
 ## Properties
 
@@ -10,8 +11,10 @@ Name | Type | Description | Notes
 **userId** | **string** |  | [optional] [default to undefined]
 **siteId** | **string** |  | [optional] [default to undefined]
 **insertedDate** | **string** | Inserted Timestamp | [optional] [default to undefined]
-**permissions** | **Array&lt;string&gt;** | List of permissions | [optional] [default to undefined]
+**roleType** | [**ApiPermissionRoleType**](ApiPermissionRoleType.md) |  | [optional] [default to undefined]
+**permissions** | [**Set&lt;ApiPermissionGrant&gt;**](ApiPermissionGrant.md) | Explicit CUSTOM or legacy permission grants. | [optional] [default to undefined]
 **groups** | **Array&lt;string&gt;** | List of groups to add as custom claims to API Key | [optional] [default to undefined]
+**customClaims** | **{ [key: string]: any; }** | Custom claims associated with the API key and exposed in the requesting caller\&#39;s userClaims. Values may be strings, numbers, Booleans, arrays, or objects. Null-valued object fields are omitted. These claims do not override the key\&#39;s username, site, groups, role, or permissions. Keys created without custom claims have an empty claims map. | [optional] [default to undefined]
 
 ## Example
 
@@ -24,8 +27,10 @@ const instance: ApiKey = {
     userId,
     siteId,
     insertedDate,
+    roleType,
     permissions,
     groups,
+    customClaims,
 };
 ```
 

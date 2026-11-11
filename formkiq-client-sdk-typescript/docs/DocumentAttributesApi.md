@@ -16,7 +16,7 @@ All URIs are relative to *http://localhost*
 # **addDocumentAttributes**
 > AddResponse addDocumentAttributes(addDocumentAttributesRequest)
 
-Add multiple attributes to a document; this endpoint also accepts a different body parameter for adding a single attribute
+Add multiple attributes to a document; this endpoint also accepts a different body parameter for adding a single attribute  For an attribute defined with dataType JSON, supply one object in jsonValue. Do not combine jsonValue with scalar, entity, classification, or relationship value fields.  Requires WRITE_DOCUMENT_ATTRIBUTES or WRITE. ADMIN retains access.
 
 ### Example
 
@@ -77,7 +77,7 @@ No authorization required
 # **deleteDocumentAttribute**
 > DeleteResponse deleteDocumentAttribute()
 
-Delete a document attribute by using its key
+Delete a document attribute by using its key. For a JSON attribute, this deletes the entire JSON object, subject to authorization and required-attribute validation.  Requires DELETE_DOCUMENT_ATTRIBUTES or DELETE. ADMIN retains access.
 
 ### Example
 
@@ -137,7 +137,7 @@ No authorization required
 # **deleteDocumentAttributeAndValue**
 > DeleteResponse deleteDocumentAttributeAndValue()
 
-Delete a specific document attribute key/value combination; the request will be ignored if there is no valid key/value combination found
+Delete a specific document attribute key/value combination; the request will be ignored if there is no valid key/value combination found.  Attributes defined with dataType JSON are rejected with 400 Bad Request, regardless of the supplied attributeValue. No data is changed. Delete the entire JSON attribute using DELETE /documents/{documentId}/attributes/{attributeKey} instead.  Requires DELETE_DOCUMENT_ATTRIBUTES or DELETE. ADMIN retains access.
 
 ### Example
 
@@ -194,13 +194,14 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+|**400** | JSON attributes must be deleted by attribute key, or attribute validation failed. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generateDocumentAttributeValue**
 > GenerateDocumentAttributeValueResponse generateDocumentAttributeValue()
 
-Allocates the next value from the numbering sequence configured for the attribute key and stores it on the document. If the document already has a value for the attribute key, the existing value is returned.
+Allocates the next value from the numbering sequence configured for the attribute key and stores it on the document. If the document already has a value for the attribute key, the existing value is returned.  Requires WRITE_DOCUMENT_ATTRIBUTES or WRITE. ADMIN retains access.
 
 ### Example
 
@@ -259,7 +260,7 @@ No authorization required
 # **getDocumentAttribute**
 > GetDocumentAttributeResponse getDocumentAttribute()
 
-Get a document attribute by using its key
+Get a document attribute by using its key  Requires READ_DOCUMENT_ATTRIBUTES or READ. ADMIN retains access.
 
 ### Example
 
@@ -319,7 +320,7 @@ No authorization required
 # **getDocumentAttributes**
 > GetDocumentAttributesResponse getDocumentAttributes()
 
-Get a listing of a document\'s attributes
+Get a listing of a document\'s attributes  Requires READ_DOCUMENT_ATTRIBUTES or READ. ADMIN retains access.
 
 ### Example
 
@@ -382,7 +383,7 @@ No authorization required
 # **setDocumentAttributeValue**
 > SetResponse setDocumentAttributeValue(setDocumentAttributeRequest)
 
-Set attributes value to a document
+Set an attribute value on a document. For an attribute defined with dataType JSON, supply jsonValue to replace the entire object. Nested fields are not merged.  Requires WRITE_DOCUMENT_ATTRIBUTES or WRITE. ADMIN retains access.
 
 ### Example
 
@@ -446,7 +447,7 @@ No authorization required
 # **setDocumentAttributes**
 > SetResponse setDocumentAttributes(setDocumentAttributesRequest)
 
-Set multiple attributes to a document; this endpoint also accepts a different body parameter for setting a single attribute  Note: - attributes in the request will overwrite existing attributes.
+Set multiple attributes to a document; this endpoint also accepts a different body parameter for setting a single attribute  Note: - attributes in the request will overwrite existing attributes. - jsonValue replaces the entire JSON object; nested fields are not merged.  Requires WRITE_DOCUMENT_ATTRIBUTES or WRITE. ADMIN retains access.
 
 ### Example
 

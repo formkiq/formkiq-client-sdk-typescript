@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 |[**getOpaAccessPolicy**](#getopaaccesspolicy) | **GET** /sites/{siteId}/opa/accessPolicy | Get OPA Access Policy|
 |[**getOpaAccessPolicyItems**](#getopaaccesspolicyitems) | **GET** /sites/{siteId}/opa/accessPolicy/policyItems | Get OPA Access Policy Items|
 |[**setOpaAccessPolicyItems**](#setopaaccesspolicyitems) | **PUT** /sites/{siteId}/opa/accessPolicy/policyItems | Set opa access policy items, can only be requested with ADMIN privileges|
+|[**testOpaAccessPolicy**](#testopaaccesspolicy) | **POST** /sites/{siteId}/opa/accessPolicy/test | Test an OPA access policy, can only be requested with ADMIN privileges|
 
 # **deleteOpaAccessPolicyItems**
 > DeleteResponse deleteOpaAccessPolicyItems()
@@ -260,6 +261,66 @@ No authorization required
 |-------------|-------------|------------------|
 |**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
 |**400** | 400 OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **testOpaAccessPolicy**
+> TestOpaAccessPolicyResponse testOpaAccessPolicy(testOpaAccessPolicyRequest)
+
+Evaluates the site\'s saved OPA access policy, or draft policy items supplied in the request, against simulated request and user input. The operation does not persist policies or modify documents.
+
+### Example
+
+```typescript
+import {
+    AccessControlApi,
+    Configuration,
+    TestOpaAccessPolicyRequest
+} from 'formkiq-client-sdk-typescript';
+
+const configuration = new Configuration();
+const apiInstance = new AccessControlApi(configuration);
+
+let siteId: string; //Site Identifier (default to undefined)
+let testOpaAccessPolicyRequest: TestOpaAccessPolicyRequest; //
+
+const { status, data } = await apiInstance.testOpaAccessPolicy(
+    siteId,
+    testOpaAccessPolicyRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **testOpaAccessPolicyRequest** | **TestOpaAccessPolicyRequest**|  | |
+| **siteId** | [**string**] | Site Identifier | defaults to undefined|
+
+
+### Return type
+
+**TestOpaAccessPolicyResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OPA access policy test completed |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+|**400** | Invalid OPA access policy test request |  -  |
+|**401** | User is not authenticated or does not have ADMIN privileges for the site |  -  |
+|**404** | No saved OPA access policy exists for the site |  -  |
+|**500** | OPA evaluation failed |  -  |
+|**504** | OPA evaluation timed out |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -52,7 +52,6 @@ docs/AddDocumentRequest.md
 docs/AddDocumentResponse.md
 docs/AddDocumentReview.md
 docs/AddDocumentReviewDecision.md
-docs/AddDocumentReviewDecision409Response.md
 docs/AddDocumentReviewDecisionRequest.md
 docs/AddDocumentReviewDecisionResponse.md
 docs/AddDocumentReviewRequest.md
@@ -131,7 +130,10 @@ docs/AddWorkflowStepDecision.md
 docs/AddWorkflowStepQueue.md
 docs/AdvancedDocumentSearchApi.md
 docs/ApiKey.md
-docs/ApiKeyPermission.md
+docs/ApiPermission.md
+docs/ApiPermissionGrant.md
+docs/ApiPermissionGroup.md
+docs/ApiPermissionRoleType.md
 docs/Attribute.md
 docs/AttributeDataType.md
 docs/AttributeSchemaCompositeKey.md
@@ -152,6 +154,7 @@ docs/DataClassificationAttribute.md
 docs/DelegationTokenPermission.md
 docs/DelegationTokenPrincipal.md
 docs/DeleteApiKeyResponse.md
+docs/DeleteDocument404Response.md
 docs/DeleteFolderResponse.md
 docs/DeleteFulltextResponse.md
 docs/DeleteIndicesResponse.md
@@ -181,9 +184,11 @@ docs/DocumentConfig.md
 docs/DocumentConfigContentTypes.md
 docs/DocumentConfigDispositionAction.md
 docs/DocumentConfigRetentionAndDisposition.md
+docs/DocumentDeleteType.md
 docs/DocumentFoldersApi.md
 docs/DocumentFulltextAttribute.md
 docs/DocumentFulltextAttributeEq.md
+docs/DocumentFulltextAttributeNot.md
 docs/DocumentFulltextRequest.md
 docs/DocumentFulltextResponse.md
 docs/DocumentFulltextSearch.md
@@ -209,6 +214,7 @@ docs/DocumentReviewsApi.md
 docs/DocumentSearch.md
 docs/DocumentSearchApi.md
 docs/DocumentSearchAttribute.md
+docs/DocumentSearchAttributeNot.md
 docs/DocumentSearchFilename.md
 docs/DocumentSearchFolder.md
 docs/DocumentSearchMatchAttribute.md
@@ -236,10 +242,17 @@ docs/DocumentsCompressDocument.md
 docs/DocumentsCompressRequest.md
 docs/DocumentsCompressResponse.md
 docs/DocusignConfig.md
+docs/DocusignDateSignedTab.md
+docs/DocusignDateTab.md
+docs/DocusignEnvelopeAuditEvent.md
+docs/DocusignEnvelopeAuditEventField.md
+docs/DocusignEnvelopeAuditEventFieldErrorDetails.md
+docs/DocusignEnvelopePaymentEvent.md
 docs/DocusignEnvelopeRecipient.md
 docs/DocusignEnvelopeRecipients.md
 docs/DocusignEnvelopeStatus.md
 docs/DocusignEnvironment.md
+docs/DocusignInitialHereTab.md
 docs/DocusignInpersonSigner.md
 docs/DocusignNotification.md
 docs/DocusignNotificationExpirations.md
@@ -250,6 +263,7 @@ docs/DocusignSignHereTabs.md
 docs/DocusignSigner.md
 docs/DocusignSignerReadyToSignNotification.md
 docs/DocusignSigningTabs.md
+docs/DocusignTextTab.md
 docs/ESignatureApi.md
 docs/Entity.md
 docs/EntityApi.md
@@ -295,6 +309,7 @@ docs/GetDocumentVersionsResponse.md
 docs/GetDocumentWorkflowResponse.md
 docs/GetDocumentWorkflowsResponse.md
 docs/GetDocumentsResponse.md
+docs/GetDocusignEnvelopeAuditEventsResponse.md
 docs/GetDocusignEnvelopeResponse.md
 docs/GetEntitiesResponse.md
 docs/GetEntityResponse.md
@@ -321,6 +336,7 @@ docs/GetOpenSearchIndexResponse.md
 docs/GetOpenSearchIndiceResponse.md
 docs/GetOpenSearchSnapshotRepositoryResponse.md
 docs/GetOpenSearchSnapshotResponse.md
+docs/GetPermissionCatalogResponse.md
 docs/GetQueueResponse.md
 docs/GetQueuesResponse.md
 docs/GetRuleResponse.md
@@ -358,6 +374,8 @@ docs/IndexSearch.md
 docs/IndexSearchRequest.md
 docs/IndexSearchResponse.md
 docs/IntelligentDocumentProcessingApi.md
+docs/JsonAttributeSearchFilter.md
+docs/JsonAttributeValueExclusiveNot.md
 docs/LocaleInfo.md
 docs/LocaleResourceType.md
 docs/MalwareEngine.md
@@ -417,6 +435,14 @@ docs/OpaPolicyInput.md
 docs/OpaPolicyInputMethod.md
 docs/OpaPolicyInputResource.md
 docs/OpaPolicyItem.md
+docs/OpaPolicyTestCriteriaGroup.md
+docs/OpaPolicyTestCriterion.md
+docs/OpaPolicyTestDecision.md
+docs/OpaPolicyTestErrorResponse.md
+docs/OpaPolicyTestHttpMethod.md
+docs/OpaPolicyTestInput.md
+docs/OpaPolicyTestInputUser.md
+docs/OpaPolicyTestOperator.md
 docs/OpenSearchAlias.md
 docs/OpenSearchIndex.md
 docs/OpenSearchIndexSetting.md
@@ -426,6 +452,9 @@ docs/OpenSearchSnapshotFailure.md
 docs/OpenSearchSnapshotShard.md
 docs/PdfDocument.md
 docs/PdfDocumentField.md
+docs/PermissionCatalogGroup.md
+docs/PermissionCatalogPermission.md
+docs/PermissionCatalogRoleType.md
 docs/PromoteDocumentArtifactRequest.md
 docs/PublicApi.md
 docs/QueryFulltextResponse.md
@@ -480,7 +509,6 @@ docs/ShortlinksApi.md
 docs/Site.md
 docs/SiteConfig.md
 docs/SiteGroup.md
-docs/SiteGroupPermissions.md
 docs/SitePermission.md
 docs/SiteStatus.md
 docs/SiteUsage.md
@@ -489,6 +517,8 @@ docs/SystemInferenceModel.md
 docs/SystemInferenceModelInvocation.md
 docs/SystemManagementApi.md
 docs/TagIndexApi.md
+docs/TestOpaAccessPolicyRequest.md
+docs/TestOpaAccessPolicyResponse.md
 docs/TextractQuery.md
 docs/UpdateAttribute.md
 docs/UpdateAttributeRequest.md

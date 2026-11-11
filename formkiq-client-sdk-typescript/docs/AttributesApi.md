@@ -14,7 +14,7 @@ All URIs are relative to *http://localhost*
 # **addAttribute**
 > AddResponse addAttribute(addAttributeRequest)
 
-Creates a new attribute
+Creates a new attribute  Use dataType JSON for one structured JSON object per document attribute key. Supply the value through jsonValue when adding the attribute to a document.  To define a watermark, use dataType WATERMARK and supply watermark.text for text or watermark.imageDocumentId for an image. Text supports `${...}` references to document attributes, document fields, metadata, and the authorization available to the watermark invocation. For example, `${attributes.CustomerName[0]}` selects the first CustomerName value, `${document.path}` selects the document path, and `${auth.username}` selects the current invocation\'s username. The request examples include sample source values and the expected rendered text.  The presigned-URL download flow does not forward the downloader\'s authorization. Without supplied invocation authorization, auth.username is System and custom claim placeholders remain unchanged.
 
 ### Example
 

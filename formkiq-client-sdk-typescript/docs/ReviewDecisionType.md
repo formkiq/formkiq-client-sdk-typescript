@@ -1,5 +1,6 @@
 # ReviewDecisionType
 
+Decision type. APPROVAL identifies an approval-type response; the separate decision value represents its outcome and may be positive or negative.
 
 ## Enum
 

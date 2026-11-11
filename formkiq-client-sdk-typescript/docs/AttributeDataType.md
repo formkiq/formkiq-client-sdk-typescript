@@ -1,10 +1,12 @@
 # AttributeDataType
 
-Data Type of Attribute
+Data Type of Attribute. JSON accepts an object through jsonValue; arrays are allowed within the object.
 
 ## Enum
 
 * `String` (value: `'STRING'`)
+
+* `Json` (value: `'JSON'`)
 
 * `Number` (value: `'NUMBER'`)
 

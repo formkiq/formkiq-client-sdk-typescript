@@ -47,11 +47,13 @@ const apiInstance = new DocumentsApi(configuration);
 let addDocumentRequest: AddDocumentRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
 let shareKey: string; //Share Identifier (optional) (default to undefined)
+let accelerate: boolean; //Use S3 Transfer Acceleration for presigned transfer URLs targeting the FormKiQ documents bucket, including internal uploads of inline content. Requires EnableS3TransferAcceleration=true on the deployment; additional transfer charges apply. Defaults to false. Has no effect on inline content returned by the API. Unavailable acceleration, external download URLs, and watermarked downloads return HTTP 400. (optional) (default to false)
 
 const { status, data } = await apiInstance.addDocument(
     addDocumentRequest,
     siteId,
-    shareKey
+    shareKey,
+    accelerate
 );
 ```
 
@@ -62,6 +64,7 @@ const { status, data } = await apiInstance.addDocument(
 | **addDocumentRequest** | **AddDocumentRequest**|  | |
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
 | **shareKey** | [**string**] | Share Identifier | (optional) defaults to undefined|
+| **accelerate** | [**boolean**] | Use S3 Transfer Acceleration for presigned transfer URLs targeting the FormKiQ documents bucket, including internal uploads of inline content. Requires EnableS3TransferAcceleration&#x3D;true on the deployment; additional transfer charges apply. Defaults to false. Has no effect on inline content returned by the API. Unavailable acceleration, external download URLs, and watermarked downloads return HTTP 400. | (optional) defaults to false|
 
 
 ### Return type
@@ -166,13 +169,15 @@ let siteId: string; //Site Identifier (optional) (default to undefined)
 let contentLength: number; //Indicates the size of the entity-body (optional) (default to undefined)
 let duration: number; //Indicates the number of hours request is valid for (optional) (default to undefined)
 let shareKey: string; //Share Identifier (optional) (default to undefined)
+let accelerate: boolean; //Use S3 Transfer Acceleration for presigned transfer URLs targeting the FormKiQ documents bucket, including internal uploads of inline content. Requires EnableS3TransferAcceleration=true on the deployment; additional transfer charges apply. Defaults to false. Has no effect on inline content returned by the API. Unavailable acceleration, external download URLs, and watermarked downloads return HTTP 400. (optional) (default to false)
 
 const { status, data } = await apiInstance.addDocumentUpload(
     addDocumentUploadRequest,
     siteId,
     contentLength,
     duration,
-    shareKey
+    shareKey,
+    accelerate
 );
 ```
 
@@ -185,6 +190,7 @@ const { status, data } = await apiInstance.addDocumentUpload(
 | **contentLength** | [**number**] | Indicates the size of the entity-body | (optional) defaults to undefined|
 | **duration** | [**number**] | Indicates the number of hours request is valid for | (optional) defaults to undefined|
 | **shareKey** | [**string**] | Share Identifier | (optional) defaults to undefined|
+| **accelerate** | [**boolean**] | Use S3 Transfer Acceleration for presigned transfer URLs targeting the FormKiQ documents bucket, including internal uploads of inline content. Requires EnableS3TransferAcceleration&#x3D;true on the deployment; additional transfer charges apply. Defaults to false. Has no effect on inline content returned by the API. Unavailable acceleration, external download URLs, and watermarked downloads return HTTP 400. | (optional) defaults to false|
 
 
 ### Return type
@@ -266,7 +272,7 @@ No authorization required
 # **deleteDocument**
 > DeleteResponse deleteDocument()
 
-Delete a document\'s details, i.e., metadata, contents, etc  SoftDelete:  The SoftDelete parameter allows for the temporary removal of a document\'s metadata, attributes, etc from being retrieved from all API requests.  The document can be permanently deleted by calling the DELETE /documents/{documentId} with softDelete=false or restored using the PUT /documents/{documentId}/restore.  Only the GET /documents?softDeleted=true will return all the soft deleted documents.
+Select the deletion behavior using deleteType (case-insensitive; surrounding whitespace is ignored):  - SOFT_DELETE temporarily hides the document\'s metadata, attributes, and associated records   from normal API requests. Restore the document using PUT /documents/{documentId}/restore,   or list soft-deleted documents using GET /documents?softDeleted=true. - HARD_DELETE deletes the document\'s metadata and current contents. - CONTENT_ONLY removes the current S3 object while retaining document metadata,   attributes, tags, processing results, and workflow history. Existing S3 versions are retained.   Returns 404 when the current content does not exist, including repeated content deletion.  When no deletion option is supplied, the document\'s metadata and current contents are deleted.  The deprecated softDelete parameter remains supported for backward compatibility. Without deleteType, softDelete=true selects SOFT_DELETE. If softDelete is false or omitted, HARD_DELETE is used.  When deleteType is supplied, it takes precedence and softDelete is ignored.
 
 ### Example
 
@@ -282,13 +288,15 @@ const apiInstance = new DocumentsApi(configuration);
 let documentId: string; //Document Identifier (default to undefined)
 let siteId: string; //Site Identifier (optional) (default to undefined)
 let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
-let softDelete: boolean; //Whether to soft delete document (optional) (default to undefined)
+let softDelete: boolean; //Legacy deletion flag. Set true to soft delete the document, equivalent to deleteType=SOFT_DELETE. Existing requests remain supported. Ignored when deleteType is supplied. (optional) (default to undefined)
+let deleteType: DocumentDeleteType; //Case-insensitive deletion mode; surrounding whitespace is ignored. Defaults to HARD_DELETE when no deletion option is supplied. Takes precedence over the deprecated softDelete parameter when both are supplied. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.deleteDocument(
     documentId,
     siteId,
     artifactId,
-    softDelete
+    softDelete,
+    deleteType
 );
 ```
 
@@ -299,7 +307,8 @@ const { status, data } = await apiInstance.deleteDocument(
 | **documentId** | [**string**] | Document Identifier | defaults to undefined|
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
 | **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
-| **softDelete** | [**boolean**] | Whether to soft delete document | (optional) defaults to undefined|
+| **softDelete** | [**boolean**] | Legacy deletion flag. Set true to soft delete the document, equivalent to deleteType&#x3D;SOFT_DELETE. Existing requests remain supported. Ignored when deleteType is supplied. | (optional) defaults to undefined|
+| **deleteType** | **DocumentDeleteType** | Case-insensitive deletion mode; surrounding whitespace is ignored. Defaults to HARD_DELETE when no deletion option is supplied. Takes precedence over the deprecated softDelete parameter when both are supplied. | (optional) defaults to undefined|
 
 
 ### Return type
@@ -320,6 +329,8 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+|**400** | Invalid deletion mode. |  -  |
+|**404** | Document or content not found. Content-only deletion returns this status when the current S3 object is absent, including repeated deletion, with the message \&quot;Document content for {documentId} not found.\&quot; |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -575,13 +586,15 @@ let siteId: string; //Site Identifier (optional) (default to undefined)
 let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 let versionKey: string; //Version Key (version key required URL encoding) (optional) (default to undefined)
 let shareKey: string; //Share Identifier (optional) (default to undefined)
+let accelerate: boolean; //Use S3 Transfer Acceleration for presigned transfer URLs targeting the FormKiQ documents bucket, including internal uploads of inline content. Requires EnableS3TransferAcceleration=true on the deployment; additional transfer charges apply. Defaults to false. Has no effect on inline content returned by the API. Unavailable acceleration, external download URLs, and watermarked downloads return HTTP 400. (optional) (default to false)
 
 const { status, data } = await apiInstance.getDocumentContent(
     documentId,
     siteId,
     artifactId,
     versionKey,
-    shareKey
+    shareKey,
+    accelerate
 );
 ```
 
@@ -594,6 +607,7 @@ const { status, data } = await apiInstance.getDocumentContent(
 | **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 | **versionKey** | [**string**] | Version Key (version key required URL encoding) | (optional) defaults to undefined|
 | **shareKey** | [**string**] | Share Identifier | (optional) defaults to undefined|
+| **accelerate** | [**boolean**] | Use S3 Transfer Acceleration for presigned transfer URLs targeting the FormKiQ documents bucket, including internal uploads of inline content. Requires EnableS3TransferAcceleration&#x3D;true on the deployment; additional transfer charges apply. Defaults to false. Has no effect on inline content returned by the API. Unavailable acceleration, external download URLs, and watermarked downloads return HTTP 400. | (optional) defaults to false|
 
 
 ### Return type
@@ -641,6 +655,7 @@ let checksum: string; //Checksum value (optional) (default to undefined)
 let contentLength: number; //Indicates the size of the entity-body (optional) (default to undefined)
 let duration: number; //Indicates the number of hours request is valid for (optional) (default to undefined)
 let shareKey: string; //Share Identifier (optional) (default to undefined)
+let accelerate: boolean; //Use S3 Transfer Acceleration for presigned transfer URLs targeting the FormKiQ documents bucket, including internal uploads of inline content. Requires EnableS3TransferAcceleration=true on the deployment; additional transfer charges apply. Defaults to false. Has no effect on inline content returned by the API. Unavailable acceleration, external download URLs, and watermarked downloads return HTTP 400. (optional) (default to false)
 
 const { status, data } = await apiInstance.getDocumentIdUpload(
     documentId,
@@ -650,7 +665,8 @@ const { status, data } = await apiInstance.getDocumentIdUpload(
     checksum,
     contentLength,
     duration,
-    shareKey
+    shareKey,
+    accelerate
 );
 ```
 
@@ -666,6 +682,7 @@ const { status, data } = await apiInstance.getDocumentIdUpload(
 | **contentLength** | [**number**] | Indicates the size of the entity-body | (optional) defaults to undefined|
 | **duration** | [**number**] | Indicates the number of hours request is valid for | (optional) defaults to undefined|
 | **shareKey** | [**string**] | Share Identifier | (optional) defaults to undefined|
+| **accelerate** | [**boolean**] | Use S3 Transfer Acceleration for presigned transfer URLs targeting the FormKiQ documents bucket, including internal uploads of inline content. Requires EnableS3TransferAcceleration&#x3D;true on the deployment; additional transfer charges apply. Defaults to false. Has no effect on inline content returned by the API. Unavailable acceleration, external download URLs, and watermarked downloads return HTTP 400. | (optional) defaults to false|
 
 
 ### Return type
@@ -772,6 +789,7 @@ let checksum: string; //Checksum value (optional) (default to undefined)
 let contentLength: number; //Indicates the size of the entity-body (optional) (default to undefined)
 let duration: number; //Indicates the number of hours request is valid for (optional) (default to undefined)
 let shareKey: string; //Share Identifier (optional) (default to undefined)
+let accelerate: boolean; //Use S3 Transfer Acceleration for presigned transfer URLs targeting the FormKiQ documents bucket, including internal uploads of inline content. Requires EnableS3TransferAcceleration=true on the deployment; additional transfer charges apply. Defaults to false. Has no effect on inline content returned by the API. Unavailable acceleration, external download URLs, and watermarked downloads return HTTP 400. (optional) (default to false)
 
 const { status, data } = await apiInstance.getDocumentUpload(
     path,
@@ -780,7 +798,8 @@ const { status, data } = await apiInstance.getDocumentUpload(
     checksum,
     contentLength,
     duration,
-    shareKey
+    shareKey,
+    accelerate
 );
 ```
 
@@ -795,6 +814,7 @@ const { status, data } = await apiInstance.getDocumentUpload(
 | **contentLength** | [**number**] | Indicates the size of the entity-body | (optional) defaults to undefined|
 | **duration** | [**number**] | Indicates the number of hours request is valid for | (optional) defaults to undefined|
 | **shareKey** | [**string**] | Share Identifier | (optional) defaults to undefined|
+| **accelerate** | [**boolean**] | Use S3 Transfer Acceleration for presigned transfer URLs targeting the FormKiQ documents bucket, including internal uploads of inline content. Requires EnableS3TransferAcceleration&#x3D;true on the deployment; additional transfer charges apply. Defaults to false. Has no effect on inline content returned by the API. Unavailable acceleration, external download URLs, and watermarked downloads return HTTP 400. | (optional) defaults to false|
 
 
 ### Return type
@@ -821,7 +841,7 @@ No authorization required
 # **getDocumentUrl**
 > GetDocumentUrlResponse getDocumentUrl()
 
-Returns a URL for the document\'s contents; this URL will expire (the default is 48 hours)
+Returns a URL for the document\'s contents. Direct S3 presigned URLs expire after 48 hours by default.  With the Shortlinks Add-On Module, use `format=short&maxUses=1` for a single-redemption short link, or set `maxUses` to a larger positive integer to allow that many redemptions. Omitting `maxUses` permits unlimited redemptions during the short link\'s validity period.  For usage-limited short links, `duration` controls the short link\'s validity in hours. Each successful redemption generates a fresh S3 presigned URL valid for 20 seconds. The S3 request must start before expiry; a download already in progress can continue afterward. The S3 URL itself can be reused during those 20 seconds.
 
 ### Example
 
@@ -843,6 +863,8 @@ let shareKey: string; //Share Identifier (optional) (default to undefined)
 let inline: boolean; //Request inline delivery. S3-backed SVG documents identified by content type or filename are always served as attachments. (optional) (default to false)
 let bypassWatermark: boolean; //Allow the by pass of watermark (only allowed by GOVERN / ADMIN permissions) (optional) (default to false)
 let format: 'short'; //Return a shortlink URL when set to `short`; available as an Add-On Module (optional) (default to undefined)
+let maxUses: number; //Maximum number of successful short-link redemptions. Requires `format=short` and the Shortlinks Add-On Module. Set to `1` for a single redemption; omit for unlimited redemptions during the short link\'s validity period. (optional) (default to undefined)
+let accelerate: boolean; //Use S3 Transfer Acceleration for presigned transfer URLs targeting the FormKiQ documents bucket, including internal uploads of inline content. Requires EnableS3TransferAcceleration=true on the deployment; additional transfer charges apply. Defaults to false. Has no effect on inline content returned by the API. Unavailable acceleration, external download URLs, and watermarked downloads return HTTP 400. (optional) (default to false)
 
 const { status, data } = await apiInstance.getDocumentUrl(
     documentId,
@@ -853,7 +875,9 @@ const { status, data } = await apiInstance.getDocumentUrl(
     shareKey,
     inline,
     bypassWatermark,
-    format
+    format,
+    maxUses,
+    accelerate
 );
 ```
 
@@ -870,6 +894,8 @@ const { status, data } = await apiInstance.getDocumentUrl(
 | **inline** | [**boolean**] | Request inline delivery. S3-backed SVG documents identified by content type or filename are always served as attachments. | (optional) defaults to false|
 | **bypassWatermark** | [**boolean**] | Allow the by pass of watermark (only allowed by GOVERN / ADMIN permissions) | (optional) defaults to false|
 | **format** | [**&#39;short&#39;**]**Array<&#39;short&#39;>** | Return a shortlink URL when set to &#x60;short&#x60;; available as an Add-On Module | (optional) defaults to undefined|
+| **maxUses** | [**number**] | Maximum number of successful short-link redemptions. Requires &#x60;format&#x3D;short&#x60; and the Shortlinks Add-On Module. Set to &#x60;1&#x60; for a single redemption; omit for unlimited redemptions during the short link\&#39;s validity period. | (optional) defaults to undefined|
+| **accelerate** | [**boolean**] | Use S3 Transfer Acceleration for presigned transfer URLs targeting the FormKiQ documents bucket, including internal uploads of inline content. Requires EnableS3TransferAcceleration&#x3D;true on the deployment; additional transfer charges apply. Defaults to false. Has no effect on inline content returned by the API. Unavailable acceleration, external download URLs, and watermarked downloads return HTTP 400. | (optional) defaults to false|
 
 
 ### Return type
@@ -1345,13 +1371,15 @@ let updateDocumentRequest: UpdateDocumentRequest; //
 let siteId: string; //Site Identifier (optional) (default to undefined)
 let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
 let shareKey: string; //Share Identifier (optional) (default to undefined)
+let accelerate: boolean; //Use S3 Transfer Acceleration for presigned transfer URLs targeting the FormKiQ documents bucket, including internal uploads of inline content. Requires EnableS3TransferAcceleration=true on the deployment; additional transfer charges apply. Defaults to false. Has no effect on inline content returned by the API. Unavailable acceleration, external download URLs, and watermarked downloads return HTTP 400. (optional) (default to false)
 
 const { status, data } = await apiInstance.updateDocument(
     documentId,
     updateDocumentRequest,
     siteId,
     artifactId,
-    shareKey
+    shareKey,
+    accelerate
 );
 ```
 
@@ -1364,6 +1392,7 @@ const { status, data } = await apiInstance.updateDocument(
 | **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
 | **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
 | **shareKey** | [**string**] | Share Identifier | (optional) defaults to undefined|
+| **accelerate** | [**boolean**] | Use S3 Transfer Acceleration for presigned transfer URLs targeting the FormKiQ documents bucket, including internal uploads of inline content. Requires EnableS3TransferAcceleration&#x3D;true on the deployment; additional transfer charges apply. Defaults to false. Has no effect on inline content returned by the API. Unavailable acceleration, external download URLs, and watermarked downloads return HTTP 400. | (optional) defaults to false|
 
 
 ### Return type

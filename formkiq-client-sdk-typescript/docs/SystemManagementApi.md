@@ -37,6 +37,7 @@ All URIs are relative to *http://localhost*
 |[**getOpenSearchSnapshotRepositories**](#getopensearchsnapshotrepositories) | **GET** /sites/global/opensearch/snapshotRepositories | List OpenSearch snapshot repositories|
 |[**getOpenSearchSnapshotRepository**](#getopensearchsnapshotrepository) | **GET** /sites/{siteId}/opensearch/snapshotRepository | Get site OpenSearch snapshot repository|
 |[**getOpenSearchSnapshots**](#getopensearchsnapshots) | **GET** /sites/{siteId}/opensearch/snapshots | List site OpenSearch snapshots|
+|[**getPermissionCatalog**](#getpermissioncatalog) | **GET** /permissions/catalog | Get API permission catalog|
 |[**getSiteGroup**](#getsitegroup) | **GET** /sites/{siteId}/groups/{groupName} | Get group and permissions belonging to site|
 |[**getSiteGroups**](#getsitegroups) | **GET** /sites/{siteId}/groups | Get group(s) and permissions belonging to site|
 |[**getSites**](#getsites) | **GET** /sites | Get site(s) access|
@@ -55,7 +56,7 @@ All URIs are relative to *http://localhost*
 # **addApiKey**
 > AddApiKeyResponse addApiKey(addApiKeyRequest)
 
-Adds a new API Key
+Creates an API key for the specified site. Supply an optional roleType to select a predefined role, or CUSTOM with a nonempty permissions array. When roleType is omitted and a nonempty permissions array is supplied, that array is treated as an explicit CUSTOM grant without adding inherited role permissions. If roleType and permissions are both omitted, or permissions is empty with no roleType, the legacy READ, WRITE and DELETE grants apply. For predefined role types, omit permissions or supply an empty array; nonempty permissions are rejected. ADMIN roles and ADMIN permission grants are not allowed, even for administrators.
 
 ### Example
 
@@ -1823,6 +1824,51 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getPermissionCatalog**
+> GetPermissionCatalogResponse getPermissionCatalog()
+
+Returns the supported API permission role types, grouped by permission group, with the scoped permission names and descriptions in each group. Use this catalog when creating API keys or mapping user roles to permissions.  Predefined role types contain their effective permissions, including permissions inherited from other operation categories. CUSTOM contains all available scoped permissions as selectable options; it does not automatically grant them. Deprecated umbrella permissions are excluded from the permission lists, and empty groups are omitted.  The catalog is available to authenticated callers without a site-specific API permission. It describes supported grants rather than the caller\'s current permissions or authority to assign those grants. No siteId is required.
+
+### Example
+
+```typescript
+import {
+    SystemManagementApi,
+    Configuration
+} from 'formkiq-client-sdk-typescript';
+
+const configuration = new Configuration();
+const apiInstance = new SystemManagementApi(configuration);
+
+const { status, data } = await apiInstance.getPermissionCatalog();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+**GetPermissionCatalogResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | API permission catalog |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
+|**401** | Authentication required |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **getSiteGroup**
 > GetSiteGroupResponse getSiteGroup()
 
@@ -2344,7 +2390,7 @@ No authorization required
 # **setSiteGroupPermissions**
 > SetResponse setSiteGroupPermissions(setGroupPermissionsRequest)
 
-Set Site\'s Group Permissions
+Replaces the group\'s permission grants for the specified site. Supply an optional roleType to select a predefined role, or CUSTOM with a nonempty permissions array. When roleType is omitted, permissions is required and is treated as an explicit CUSTOM grant without adding inherited role permissions. For predefined role types, omit permissions or supply an empty array. Nonempty permissions with a predefined roleType are rejected. ADMIN roles and ADMIN permission grants are not allowed, even for administrators.
 
 ### Example
 

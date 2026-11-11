@@ -14,6 +14,8 @@ Attribute Value Type
 
 * `String` (value: `'STRING'`)
 
+* `Json` (value: `'JSON'`)
+
 * `Publication` (value: `'PUBLICATION'`)
 
 * `Classification` (value: `'CLASSIFICATION'`)

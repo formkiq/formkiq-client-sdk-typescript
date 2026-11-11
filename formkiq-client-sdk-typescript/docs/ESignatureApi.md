@@ -10,6 +10,7 @@ All URIs are relative to *http://localhost*
 |[**addDocusignSenderView**](#adddocusignsenderview) | **POST** /esignature/docusign/{documentId}/envelopes/{envelopeId}/views/sender | Create Docusign Sender View request|
 |[**addEsignatureDocusignEvents**](#addesignaturedocusignevents) | **POST** /esignature/docusign/events | Add E-signature event|
 |[**getDocusignEnvelope**](#getdocusignenvelope) | **GET** /esignature/docusign/{documentId}/envelopes/{envelopeId} | Get Docusign envelope and recipient status|
+|[**getDocusignEnvelopeAuditEvents**](#getdocusignenvelopeauditevents) | **GET** /esignature/docusign/{documentId}/envelopes/{envelopeId}/auditEvents | Get DocuSign envelope audit events|
 |[**voidDocusignEnvelope**](#voiddocusignenvelope) | **POST** /esignature/docusign/{documentId}/envelopes/{envelopeId}/void | Void a DocuSign envelope|
 
 # **addDocusignEnvelopeReminders**
@@ -89,7 +90,7 @@ No authorization required
 # **addDocusignEnvelopes**
 > AddDocusignEnvelopesResponse addDocusignEnvelopes(addDocusignEnvelopesRequest)
 
-DocuSign create Docusign Envelope request; available as an Add-On Module
+Create a DocuSign envelope for the selected document or artifact; available as an Add-On Module. Recipient tabs support signatures, initials, automatic signing dates, recipient-entered dates, and single-line or multiline text. See DocusignSigningTabs for the supported collections and validation rules.
 
 ### Example
 
@@ -144,7 +145,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | 200 OK |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  |
-|**400** | 400 OK |  -  |
+|**400** | Invalid envelope request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -387,6 +388,76 @@ No authorization required
 |**403** | Access to the selected document or artifact is denied |  -  |
 |**404** | Document, artifact, or associated DocuSign envelope not found |  -  |
 |**429** | Envelope polling or DocuSign rate limit exceeded |  * Retry-After - Seconds to wait before another lookup <br>  |
+|**502** | DocuSign authentication failure, upstream error, or invalid response |  -  |
+|**504** | DocuSign request timed out |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getDocusignEnvelopeAuditEvents**
+> GetDocusignEnvelopeAuditEventsResponse getDocusignEnvelopeAuditEvents()
+
+Retrieves the audit history recorded by DocuSign for an associated envelope; available as an Add-On Module. Requires read access to the selected document or artifact and validates its stored envelope association before contacting DocuSign. Calls GET /restapi/v2.1/accounts/{accountId}/envelopes/{envelopeId}/audit_events, resolving the account, base URI, and OAuth token through the site\'s existing integration. Returns DocuSign\'s JSON unchanged, including auditEvents, paymentEvents, and any additional fields, without a FormKiQ wrapper. Includes reminder and resend events when recorded by DocuSign; this history does not guarantee that every reminder is recorded or confirm inbox delivery. Reminder and resend webhook subscriptions are separate from this operation.
+
+### Example
+
+```typescript
+import {
+    ESignatureApi,
+    Configuration
+} from 'formkiq-client-sdk-typescript';
+
+const configuration = new Configuration();
+const apiInstance = new ESignatureApi(configuration);
+
+let documentId: string; //Document Identifier (default to undefined)
+let envelopeId: string; //Docusign Envelope Id (default to undefined)
+let siteId: string; //Site Identifier (optional) (default to undefined)
+let artifactId: string; //Artifact Document Identifier (optional) (default to undefined)
+let environment: DocusignEnvironment; //DocuSign environment. Defaults to the site\'s docusignEnvironment; required when the site has no default. Must match the environment in which the envelope was created. (optional) (default to undefined)
+
+const { status, data } = await apiInstance.getDocusignEnvelopeAuditEvents(
+    documentId,
+    envelopeId,
+    siteId,
+    artifactId,
+    environment
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **documentId** | [**string**] | Document Identifier | defaults to undefined|
+| **envelopeId** | [**string**] | Docusign Envelope Id | defaults to undefined|
+| **siteId** | [**string**] | Site Identifier | (optional) defaults to undefined|
+| **artifactId** | [**string**] | Artifact Document Identifier | (optional) defaults to undefined|
+| **environment** | **DocusignEnvironment** | DocuSign environment. Defaults to the site\&#39;s docusignEnvironment; required when the site has no default. Must match the environment in which the envelope was created. | (optional) defaults to undefined|
+
+
+### Return type
+
+**GetDocusignEnvelopeAuditEventsResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | DocuSign envelope audit history returned unchanged |  * Access-Control-Allow-Origin -  <br>  * Access-Control-Allow-Methods -  <br>  * Access-Control-Allow-Headers -  <br>  * Cache-Control - Prevents caching of the envelope audit history <br>  |
+|**400** | Invalid parameters or missing DocuSign configuration |  -  |
+|**401** | Authentication required |  -  |
+|**403** | Read access to the selected document or artifact is denied |  -  |
+|**404** | Document, artifact, or associated DocuSign envelope not found |  -  |
+|**429** | DocuSign rate limit exceeded |  * Retry-After - Seconds to wait before another lookup <br>  |
 |**502** | DocuSign authentication failure, upstream error, or invalid response |  -  |
 |**504** | DocuSign request timed out |  -  |
 

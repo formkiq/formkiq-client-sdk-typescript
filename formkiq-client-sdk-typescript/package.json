@@ -1,6 +1,6 @@
 {
   "name": "@formkiq/client-sdk-typescript",
-  "version": "1.19.1",
+  "version": "1.19.2",
   "description": "Official FormKiQ client for TypeScript",
   "author": "FormKiQ Inc.",
   "repository": {
